@@ -429,6 +429,7 @@ export class CompetencyService {
       strengthDomains: result.strengthDomains,
       gapDomains: result.gapDomains,
       recommendedMicroPDs: result.recommendedMicroPDs,
+      recommendedTracks: result.recommendedTracks,
       rawFeedback: result.rawFeedback,
       createdAt: result.createdAt.toDate().toISOString(),
     };

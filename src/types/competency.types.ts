@@ -141,6 +141,7 @@ export interface TeacherCompetencyResult {
   strengthDomains: string[];
   gapDomains: string[];
   recommendedMicroPDs: string[];
+  recommendedTracks?: RecommendedTrack[];
   questionResults: QuestionEvaluationResult[];
   rawFeedback: string;
   createdAt: FirebaseFirestore.Timestamp;
@@ -151,6 +152,20 @@ export interface TeacherCompetencyResult {
  */
 export interface DomainMicroPDMapping {
   [domainKey: string]: string[];
+}
+
+/**
+ * Recommended track with its associated PD modules
+ */
+export interface RecommendedTrack {
+  trackId: string;
+  trackName: string;
+  modules: Array<{
+    id: string;
+    title: string;
+  }>;
+  gapDomains: string[];
+  averageScore: number;
 }
 
 /**
@@ -175,6 +190,7 @@ export interface CompetencyResultResponse {
   strengthDomains: string[];
   gapDomains: string[];
   recommendedMicroPDs: string[];
+  recommendedTracks?: RecommendedTrack[];
   rawFeedback: string;
   createdAt: string;
 }

@@ -5,12 +5,14 @@ import {
   DomainScore,
   QuestionEvaluationResult,
   ProficiencyLevel,
+  RecommendedTrack,
 } from '../types/competency.types';
 import {
   DOMAIN_TO_TRACK_MAP,
   STRENGTH_THRESHOLD_PERCENT,
   PROFICIENCY_LEVELS,
   COMPETENCY_QUESTION_TYPES,
+  PD_TRACKS,
 } from '../config/constants';
 import { createPdModuleRepository } from '../repositories/pdModuleRepository';
 import {
@@ -40,6 +42,7 @@ interface EvaluationResult {
   strengthDomains: string[];
   gapDomains: string[];
   recommendedMicroPDs: string[];
+  recommendedTracks: RecommendedTrack[];
   questionResults: QuestionEvaluationResult[];
   rawFeedback: string;
 }
@@ -460,6 +463,66 @@ const getRecommendedMicroPDs = async (gapDomains: string[]): Promise<string[]> =
 };
 
 /**
+ * Get recommended tracks with their modules organized by gap domains
+ * Returns tracks sorted by priority (lowest average score first)
+ */
+const getRecommendedTracks = async (
+  gapDomains: string[],
+  domainScores: DomainScore[]
+): Promise<RecommendedTrack[]> => {
+  const pdModuleRepo = createPdModuleRepository();
+
+  // Group gap domains by track
+  const trackGapsMap = new Map<string, { domains: string[]; scores: number[] }>();
+
+  for (const domain of gapDomains) {
+    const trackId = DOMAIN_TO_TRACK_MAP[domain];
+    if (!trackId) continue;
+
+    if (!trackGapsMap.has(trackId)) {
+      trackGapsMap.set(trackId, { domains: [], scores: [] });
+    }
+
+    const trackData = trackGapsMap.get(trackId)!;
+    trackData.domains.push(domain);
+
+    const domainScore = domainScores.find(d => d.domainKey === domain);
+    if (domainScore) {
+      trackData.scores.push(domainScore.scorePercent);
+    }
+  }
+
+  // Build recommended tracks with modules
+  const recommendedTracks: RecommendedTrack[] = [];
+
+  for (const [trackId, data] of trackGapsMap.entries()) {
+    const trackInfo = Object.values(PD_TRACKS).find(t => t.id === trackId);
+    if (!trackInfo) continue;
+
+    const modules = await pdModuleRepo.getModulesByTrackId(trackId);
+    const averageScore = data.scores.length > 0
+      ? data.scores.reduce((sum, score) => sum + score, 0) / data.scores.length
+      : 0;
+
+    recommendedTracks.push({
+      trackId,
+      trackName: trackInfo.name,
+      modules: modules.map(m => ({
+        id: m.id,
+        title: m.title,
+      })),
+      gapDomains: data.domains,
+      averageScore,
+    });
+  }
+
+  // Sort by average score (lowest first = highest priority)
+  recommendedTracks.sort((a, b) => a.averageScore - b.averageScore);
+
+  return recommendedTracks;
+};
+
+/**
  * Generate overall feedback using AI
  */
 const generateOverallFeedback = async (
@@ -568,6 +631,9 @@ export const evaluateAttempt = async (
   // Get recommended Micro PDs (actual module IDs from database)
   const recommendedMicroPDs = await getRecommendedMicroPDs(gapDomains);
 
+  // Get recommended tracks with their modules
+  const recommendedTracks = await getRecommendedTracks(gapDomains, domainScores);
+
   // Generate overall feedback
   const rawFeedback = await generateOverallFeedback(
     domainScores,
@@ -592,6 +658,7 @@ export const evaluateAttempt = async (
     strengthDomains,
     gapDomains,
     recommendedMicroPDs,
+    recommendedTracks,
     questionResults,
     rawFeedback,
   };

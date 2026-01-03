@@ -149,11 +149,76 @@ FIREBASE_CLIENT_EMAIL=firebase-adminsdk-fbsvc@gurukul-ai-bdf19.iam.gserviceaccou
 FIREBASE_PRIVATE_KEY=...
 ```
 
+## Track-Based Recommendations Update
+
+### Changes Made
+
+Updated the evaluation system to return **track-based recommendations** aligned with your 6 PD Tracks:
+
+1. **Pedagogical Mastery** - Lesson Planning, Engagement Strategies, Assessment Design
+2. **AI & Tech** - AI Literacy, EdTech Tools, Digital Safety
+3. **Inclusive Practice** - UDL Design, SEL Activities, Differentiation
+4. **Professional Identity** - Reflection Journals, Parent Communication, Ethics
+5. **Global Citizenship** - PBL, Creativity Frameworks, Media Literacy
+6. **Educational Foundations** - Learning Theories, Child Psychology, Policy Awareness
+
+### Technical Implementation
+
+**Updated Files:**
+- `src/types/competency.types.ts` - Added `RecommendedTrack` interface
+- `src/services/competency.evaluation.service.ts` - Added `getRecommendedTracks()` function
+- `src/services/competency.service.ts` - Updated `formatResultResponse()` to include tracks
+
+**New Response Structure:**
+```json
+{
+  "recommendedTracks": [
+    {
+      "trackId": "tech_ai_fluency",
+      "trackName": "AI & Tech",
+      "modules": [
+        {"id": "intro-ai", "title": "Intro to AI"},
+        {"id": "ai-prompts", "title": "AI Prompt Writing"},
+        {"id": "ethical-ai", "title": "Ethical AI in Class"}
+      ],
+      "gapDomains": ["ai_literacy", "cybersecurity_digital_citizenship"],
+      "averageScore": 5.2
+    },
+    ...
+  ]
+}
+```
+
+Tracks are sorted by priority (lowest average score first = highest priority for improvement).
+
+### Deployment Required
+
+**The changes are complete in your codebase but need to be deployed to your EC2 server.**
+
+To deploy:
+```bash
+# 1. Build the project
+npm run build
+
+# 2. Deploy to EC2 (your deployment process)
+# This might involve:
+# - Pushing to GitHub
+# - SSH to EC2 and pulling latest code
+# - Restarting the Node.js service
+```
+
+Once deployed, the `/api/competency/result` endpoint will include:
+- `recommendedTracks` - Organized by track with modules
+- `recommendedMicroPDs` - Flat list of module IDs (backward compatibility)
+
 ## Conclusion
 
 ✅ **Issue Resolved**: Competency assessments now evaluate immediately after submission
 ✅ **Learning Paths Generated**: Personalized recommendations based on assessment results
+✅ **Track-Based Structure**: Recommendations now organized by 6 PD Tracks
 ✅ **Error Handling Improved**: Clear feedback when issues occur
 ✅ **Complete Flow Verified**: End-to-end testing confirms all systems operational
 
-The competency assessment system is now fully operational and providing immediate evaluation and personalized learning path recommendations.
+The competency assessment system is now fully operational and providing immediate evaluation with track-based personalized learning path recommendations.
+
+**Next Step:** Deploy the updated code to your EC2 server to activate track-based recommendations in production.

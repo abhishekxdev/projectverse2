@@ -1,0 +1,127 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function userRole() {
+      return isSignedIn() ? request.auth.token.role : null;
+    }
+
+    function userSchool() {
+      return isSignedIn()
+        ? (request.auth.token.schoolId != null
+            ? request.auth.token.schoolId
+            : null)
+        : null;
+    }
+
+    function userStatus() {
+      return isSignedIn() ? request.auth.token.status : null;
+    }
+
+    function isActive() {
+      return isSignedIn() && userStatus() != 'suspended';
+    }
+
+    function isPending() {
+      return isSignedIn() && (userStatus() == 'pending' || userStatus() == 'draft');
+    }
+
+    function isRejected() {
+      return isSignedIn() && userStatus() == 'rejected';
+    }
+
+    function isApproved() {
+      return isSignedIn() && userStatus() == 'active';
+    }
+
+    function isPlatformAdmin() {
+      return userRole() == 'platform_admin';
+    }
+
+    function isSchoolAdmin() {
+      return userRole() == 'school_admin';
+    }
+
+    function isSchoolTeacher() {
+      return userRole() == 'school_teacher';
+    }
+
+    function belongsToSchool(schoolId) {
+      return userSchool() != null && userSchool() == schoolId;
+    }
+
+    function resolveTargetSchoolId() {
+      return resource != null && resource.data.schoolId != null
+        ? resource.data.schoolId
+        : (request.resource != null ? request.resource.data.schoolId : null);
+    }
+
+    match /users/{userId} {
+      allow read: if isSignedIn() && (request.auth.uid == userId || isPlatformAdmin());
+      allow write: if isSignedIn() && isActive() && (request.auth.uid == userId || isPlatformAdmin());
+    }
+
+    match /schools/{schoolId} {
+      allow read: if isSignedIn() && (
+        isPlatformAdmin() ||
+        (belongsToSchool(schoolId) && (isSchoolAdmin() || isSchoolTeacher()))
+      );
+
+      allow write: if isSignedIn() && isActive() && (
+        isPlatformAdmin() ||
+        (isSchoolAdmin() && belongsToSchool(schoolId))
+      );
+    }
+
+    match /invites/{inviteId} {
+      allow read: if isSignedIn() && (
+        isPlatformAdmin() ||
+        (isSchoolAdmin() && belongsToSchool(resolveTargetSchoolId()))
+      );
+
+      allow write: if isSignedIn() && isActive() && (
+        isPlatformAdmin() ||
+        (isSchoolAdmin() && belongsToSchool(resolveTargetSchoolId()))
+      );
+    }
+
+    // Notifications collection - users can only access their own notifications
+    match /notifications/{notificationId} {
+      // User can only read their own notifications
+      allow read: if isSignedIn() && resource.data.userId == request.auth.uid;
+      
+      // User can only update their own notifications (mark as read)
+      allow update: if isSignedIn() && isActive() && resource.data.userId == request.auth.uid;
+      
+      // User can only delete their own notifications
+      allow delete: if isSignedIn() && isActive() && resource.data.userId == request.auth.uid;
+      
+      // Only server (admin SDK) can create notifications - deny client writes
+      allow create: if false;
+    }
+
+    match /competency/{document=**} {
+      allow read, write: if isSignedIn() && !isRejected();
+    }
+
+    match /pdModules/{moduleId} {
+      allow read: if isSignedIn() && isApproved();
+    }
+
+    match /badges/{badgeId} {
+      allow read: if isSignedIn() && isApproved();
+    }
+
+    match /certificates/{certificateId} {
+      allow read: if isSignedIn() && isApproved();
+    }
+
+    match /{document=**} {
+      allow read: if false;
+      allow write: if false;
+    }
+  }
+}

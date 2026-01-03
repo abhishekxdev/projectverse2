@@ -1,0 +1,62 @@
+# Ignore all specifications
+openspec/
+
+# Project Documents
+
+AGENTS.md
+
+# Node Modules & builds
+node_modules/
+dist/
+docs/
+
+# Environment files
+.env
+
+# Test data (media files)
+test-data/videos/*.mp4
+test-data/videos/*.mov
+test-data/videos/*.webm
+test-data/audio/*.mp3
+test-data/audio/*.wav
+test-data/audio/*.m4a
+
+# Tooling / AI configs
+.claude/
+.kilocode/
+# .github/  <-- Commented out to allow pushing github workflows if any
+CLAUDE.md
+
+
+# OS Files
+.DS_Store
+
+# Editors
+.vscode/
+
+# Coverage
+coverage/
+
+
+firebase-debug.log
+firestore-debug.log
+
+test-data/
+
+Gurucool-AI-Firebase.json
+
+keys.txt
+
+gurukul-ai-bdf19-firebase-adminsdk-fbsvc-10fbb45e2e.json
+
+playground.md
+
+gurucool-ai-key.pem
+
+gurucool-ai-backend.tar.gz
+
+github-ec2-deploy
+
+github-ec2-deploy.pub
+
+gurucool-ai-key.pub

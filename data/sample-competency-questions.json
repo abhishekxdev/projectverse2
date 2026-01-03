@@ -1,0 +1,3537 @@
+{
+  "assessmentId": "tcdt-assessment-v1",
+  "title": "Teacher Competency Diagnostic Test (TCDT)",
+  "description": "Comprehensive assessment across 6 PD tracks covering 250 questions",
+  "version": "1.0",
+  "totalQuestions": 250,
+  "categories": {
+    "A_MCQ": 50,
+    "B_SHORT_ANSWER": 50,
+    "C1_AUDIO_ROLEPLAY": 25,
+    "C2_VIDEO_ROLEPLAY": 25,
+    "D_SELF_PERCEPTION": 50,
+    "E_TEACHING_DILEMMA": 50
+  },
+  "rubric": {
+    "B_SHORT_ANSWER": {
+      "dimensions": [
+        "Depth of Reflection",
+        "Growth Orientation",
+        "Clarity of Thought"
+      ],
+      "scoring": {
+        "0": "No response or irrelevant answer",
+        "1": "Superficial response, minimal relevance",
+        "2": "General insights with some application",
+        "3": "Clear, detailed reflection with relevance"
+      },
+      "maxScorePerDimension": 3
+    },
+    "C1_AUDIO_ROLEPLAY": {
+      "dimensions": [
+        "Empathy & Tone",
+        "Instructional Language",
+        "Logical Structure"
+      ],
+      "scoring": {
+        "0": "Insensitive or dismissive tone / No instructional terms / Completely illogical",
+        "1": "Limited empathy or forced tone / Vague strategy / Weak logic",
+        "2": "Generally warm and student-focused / Some relevant language / Mostly logical",
+        "3": "Empathetic, calm, and appropriate / Effective vocabulary / Well-structured"
+      },
+      "maxScorePerDimension": 3
+    },
+    "C2_VIDEO_ROLEPLAY": {
+      "dimensions": [
+        "Empathy & Tone",
+        "Instructional Language",
+        "Logical Structure"
+      ],
+      "scoring": {
+        "0": "Insensitive or dismissive tone / No instructional terms / Completely illogical",
+        "1": "Limited empathy or forced tone / Vague strategy / Weak logic",
+        "2": "Generally warm and student-focused / Some relevant language / Mostly logical",
+        "3": "Empathetic, calm, and appropriate / Effective vocabulary / Well-structured"
+      },
+      "maxScorePerDimension": 3
+    }
+  },
+  "tracks": [
+    {
+      "id": "pedagogical_mastery",
+      "name": "Pedagogical Mastery"
+    },
+    {
+      "id": "ai_tech_fluency",
+      "name": "AI & Tech"
+    },
+    {
+      "id": "inclusive_practice",
+      "name": "Inclusive Practice"
+    },
+    {
+      "id": "professional_identity",
+      "name": "Professional Identity"
+    },
+    {
+      "id": "global_citizenship",
+      "name": "Global Citizenship"
+    },
+    {
+      "id": "educational_foundations",
+      "name": "Educational Foundations"
+    }
+  ],
+  "questions": [
+    {
+      "id": "A1",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Pedagogical Mastery",
+      "domainKey": "lesson_planning",
+      "prompt": "You've designed a science project that's exciting, but students are missing key concepts. What should you do?",
+      "options": [
+        "Reduce project scope and reteach basics",
+        "Grade on effort",
+        "Ignore the gaps",
+        "Cancel the project"
+      ],
+      "correctOption": "A",
+      "bloomLevel": "Apply",
+      "competencyTag": "Lesson Planning",
+      "maxScore": 1,
+      "order": 1
+    },
+    {
+      "id": "A2",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Pedagogical Mastery",
+      "domainKey": "classroom_management",
+      "prompt": "A student keeps interrupting during your explanation. What's the best first step?",
+      "options": [
+        "Ignore and continue",
+        "Send them out",
+        "Use humor to redirect",
+        "Call their parents"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Apply",
+      "competencyTag": "Classroom Management",
+      "maxScore": 1,
+      "order": 2
+    },
+    {
+      "id": "A3",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "You're using an AI chatbot for student feedback. What's the biggest risk?",
+      "options": [
+        "Bias in AI suggestions",
+        "Tool formatting",
+        "Privacy and transparency",
+        "Too creative"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Understand",
+      "competencyTag": "AI Risk Awareness",
+      "maxScore": 1,
+      "order": 3
+    },
+    {
+      "id": "A4",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "What's a responsible way to use generative AI in class?",
+      "options": [
+        "Let AI grade everything",
+        "Use it to replace your slides",
+        "Explain how it works to students",
+        "Let students play with it unmonitored"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Analyze",
+      "competencyTag": "AI Integration",
+      "maxScore": 1,
+      "order": 4
+    },
+    {
+      "id": "A5",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Inclusive Practice",
+      "domainKey": "inclusive_education",
+      "prompt": "A student avoids group work due to social anxiety. Your best response?",
+      "options": [
+        "Force participation",
+        "Let them opt out permanently",
+        "Offer alternative participation",
+        "Punish the student"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Apply",
+      "competencyTag": "Inclusive Practice",
+      "maxScore": 1,
+      "order": 5
+    },
+    {
+      "id": "A6",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Inclusive Practice",
+      "domainKey": "cultural_competence_dei",
+      "prompt": "You notice your lesson materials lack cultural diversity. What should you do?",
+      "options": [
+        "Ignore it for now",
+        "Use only diverse examples going forward",
+        "Reflect and revise materials",
+        "Let students decide"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Evaluate",
+      "competencyTag": "DEI",
+      "maxScore": 1,
+      "order": 6
+    },
+    {
+      "id": "A7",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Professional Identity",
+      "domainKey": "ethics_professionalism",
+      "prompt": "You made an error in grading. A student points it out. You should...",
+      "options": [
+        "Defend your grading",
+        "Admit the error",
+        "Blame the student",
+        "Do nothing"
+      ],
+      "correctOption": "B",
+      "bloomLevel": "Apply",
+      "competencyTag": "Ethics",
+      "maxScore": 1,
+      "order": 7
+    },
+    {
+      "id": "A8",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Professional Identity",
+      "domainKey": "lifelong_learning",
+      "prompt": "You're struggling to meet your school's PD hours. What should you do?",
+      "options": [
+        "Skip PD for now",
+        "Copy others' PD records",
+        "Log a plan and attend PDs later",
+        "Complain about lack of time"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Understand",
+      "competencyTag": "Lifelong Learning",
+      "maxScore": 1,
+      "order": 8
+    },
+    {
+      "id": "A9",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Global Citizenship",
+      "domainKey": "global_citizenship_sustainability",
+      "prompt": "How would you integrate SDGs into a primary lesson?",
+      "options": [
+        "Lecture on SDG goals",
+        "Add group work with token roles",
+        "Design a student-led sustainability project",
+        "Skip it—too complex"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Create",
+      "competencyTag": "Global Literacy",
+      "maxScore": 1,
+      "order": 9
+    },
+    {
+      "id": "A10",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Educational Foundations",
+      "domainKey": "child_development_psychology",
+      "prompt": "Which of the following reflects Piaget's theory of cognitive development?",
+      "options": [
+        "Children are passive learners",
+        "Learning is continuous and based on experience",
+        "Learning occurs in stages with active exploration",
+        "Development is unrelated to teaching methods"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Understand",
+      "competencyTag": "Child Development",
+      "maxScore": 1,
+      "order": 10
+    },
+    {
+      "id": "A11",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Pedagogical Mastery",
+      "domainKey": "lesson_planning",
+      "prompt": "You've designed a science project that's exciting, but students are missing key concepts. What should you do?",
+      "options": [
+        "Reduce project scope and reteach basics",
+        "Grade on effort",
+        "Ignore the gaps",
+        "Cancel the project"
+      ],
+      "correctOption": "A",
+      "bloomLevel": "Apply",
+      "competencyTag": "Lesson Planning",
+      "maxScore": 1,
+      "order": 11
+    },
+    {
+      "id": "A12",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Pedagogical Mastery",
+      "domainKey": "classroom_management",
+      "prompt": "A student keeps interrupting during your explanation. What's the best first step?",
+      "options": [
+        "Ignore and continue",
+        "Send them out",
+        "Use humor to redirect",
+        "Call their parents"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Apply",
+      "competencyTag": "Classroom Management",
+      "maxScore": 1,
+      "order": 12
+    },
+    {
+      "id": "A13",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "You're using an AI chatbot for student feedback. What's the biggest risk?",
+      "options": [
+        "Bias in AI suggestions",
+        "Tool formatting",
+        "Privacy and transparency",
+        "Too creative"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Understand",
+      "competencyTag": "AI Risk Awareness",
+      "maxScore": 1,
+      "order": 13
+    },
+    {
+      "id": "A14",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "What's a responsible way to use generative AI in class?",
+      "options": [
+        "Let AI grade everything",
+        "Use it to replace your slides",
+        "Explain how it works to students",
+        "Let students play with it unmonitored"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Analyze",
+      "competencyTag": "AI Integration",
+      "maxScore": 1,
+      "order": 14
+    },
+    {
+      "id": "A15",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Inclusive Practice",
+      "domainKey": "inclusive_education",
+      "prompt": "A student avoids group work due to social anxiety. Your best response?",
+      "options": [
+        "Force participation",
+        "Let them opt out permanently",
+        "Offer alternative participation",
+        "Punish the student"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Apply",
+      "competencyTag": "Inclusive Practice",
+      "maxScore": 1,
+      "order": 15
+    },
+    {
+      "id": "A16",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Inclusive Practice",
+      "domainKey": "cultural_competence_dei",
+      "prompt": "You notice your lesson materials lack cultural diversity. What should you do?",
+      "options": [
+        "Ignore it for now",
+        "Use only diverse examples going forward",
+        "Reflect and revise materials",
+        "Let students decide"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Evaluate",
+      "competencyTag": "DEI",
+      "maxScore": 1,
+      "order": 16
+    },
+    {
+      "id": "A17",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Professional Identity",
+      "domainKey": "ethics_professionalism",
+      "prompt": "You made an error in grading. A student points it out. You should...",
+      "options": [
+        "Defend your grading",
+        "Admit the error",
+        "Blame the student",
+        "Do nothing"
+      ],
+      "correctOption": "B",
+      "bloomLevel": "Apply",
+      "competencyTag": "Ethics",
+      "maxScore": 1,
+      "order": 17
+    },
+    {
+      "id": "A18",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Professional Identity",
+      "domainKey": "lifelong_learning",
+      "prompt": "You're struggling to meet your school's PD hours. What should you do?",
+      "options": [
+        "Skip PD for now",
+        "Copy others' PD records",
+        "Log a plan and attend PDs later",
+        "Complain about lack of time"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Understand",
+      "competencyTag": "Lifelong Learning",
+      "maxScore": 1,
+      "order": 18
+    },
+    {
+      "id": "A19",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Global Citizenship",
+      "domainKey": "global_citizenship_sustainability",
+      "prompt": "How would you integrate SDGs into a primary lesson?",
+      "options": [
+        "Lecture on SDG goals",
+        "Add group work with token roles",
+        "Design a student-led sustainability project",
+        "Skip it—too complex"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Create",
+      "competencyTag": "Global Literacy",
+      "maxScore": 1,
+      "order": 19
+    },
+    {
+      "id": "A20",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Educational Foundations",
+      "domainKey": "child_development_psychology",
+      "prompt": "Which of the following reflects Piaget's theory of cognitive developmen)",
+      "options": [
+        "Children are passive learners",
+        "Learning is continuous and based on experience",
+        "Learning occurs in stages with active exploration",
+        "Development is unrelated to teaching methods"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Understand",
+      "competencyTag": "Child Development",
+      "maxScore": 1,
+      "order": 20
+    },
+    {
+      "id": "A21",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Pedagogical Mastery",
+      "domainKey": "lesson_planning",
+      "prompt": "You've designed a science project that's exciting, but students are missing key concepts. What should you d)",
+      "options": [
+        "Reduce project scope and reteach basics",
+        "Grade on effort",
+        "Ignore the gaps",
+        "Cancel the project"
+      ],
+      "correctOption": "A",
+      "bloomLevel": "Apply",
+      "competencyTag": "Lesson Planning",
+      "maxScore": 1,
+      "order": 21
+    },
+    {
+      "id": "A22",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Pedagogical Mastery",
+      "domainKey": "classroom_management",
+      "prompt": "A student keeps interrupting during your explanation. What's the best first ste)",
+      "options": [
+        "Ignore and continue",
+        "Send them out",
+        "Use humor to redirect",
+        "Call their parents"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Apply",
+      "competencyTag": "Classroom Management",
+      "maxScore": 1,
+      "order": 22
+    },
+    {
+      "id": "A23",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "You're using an AI chatbot for student feedback. What's the biggest ris)",
+      "options": [
+        "Bias in AI suggestions",
+        "Tool formatting",
+        "Privacy and transparency",
+        "Too creative"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Understand",
+      "competencyTag": "AI Risk Awareness",
+      "maxScore": 1,
+      "order": 23
+    },
+    {
+      "id": "A24",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "What's a responsible way to use generative AI in clas)",
+      "options": [
+        "Let AI grade everything",
+        "Use it to replace your slides",
+        "Explain how it works to students",
+        "Let students play with it unmonitored"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Analyze",
+      "competencyTag": "AI Integration",
+      "maxScore": 1,
+      "order": 24
+    },
+    {
+      "id": "A25",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Inclusive Practice",
+      "domainKey": "inclusive_education",
+      "prompt": "A student avoids group work due to social anxiety. Your best respons)",
+      "options": [
+        "Force participation",
+        "Let them opt out permanently",
+        "Offer alternative participation",
+        "Punish the student"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Apply",
+      "competencyTag": "Inclusive Practice",
+      "maxScore": 1,
+      "order": 25
+    },
+    {
+      "id": "A26",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Inclusive Practice",
+      "domainKey": "cultural_competence_dei",
+      "prompt": "You notice your lesson materials lack cultural diversity. What should you d)",
+      "options": [
+        "Ignore it for now",
+        "Use only diverse examples going forward",
+        "Reflect and revise materials",
+        "Let students decide"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Evaluate",
+      "competencyTag": "DEI",
+      "maxScore": 1,
+      "order": 26
+    },
+    {
+      "id": "A27",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Professional Identity",
+      "domainKey": "ethics_professionalism",
+      "prompt": "You made an error in grading. A student points it out. You shoul)",
+      "options": [
+        "Defend your grading",
+        "Admit the error",
+        "Blame the student",
+        "Do nothing"
+      ],
+      "correctOption": "B",
+      "bloomLevel": "Apply",
+      "competencyTag": "Ethics",
+      "maxScore": 1,
+      "order": 27
+    },
+    {
+      "id": "A28",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Professional Identity",
+      "domainKey": "lifelong_learning",
+      "prompt": "You're struggling to meet your school's PD hours. What should you d)",
+      "options": [
+        "Skip PD for now",
+        "Copy others' PD records",
+        "Log a plan and attend PDs later",
+        "Complain about lack of time"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Understand",
+      "competencyTag": "Lifelong Learning",
+      "maxScore": 1,
+      "order": 28
+    },
+    {
+      "id": "A29",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Global Citizenship",
+      "domainKey": "global_citizenship_sustainability",
+      "prompt": "How would you integrate SDGs into a primary lesso)",
+      "options": [
+        "Lecture on SDG goals",
+        "Add group work with token roles",
+        "Design a student-led sustainability project",
+        "Skip it—too complex"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Create",
+      "competencyTag": "Global Literacy",
+      "maxScore": 1,
+      "order": 29
+    },
+    {
+      "id": "A30",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Educational Foundations",
+      "domainKey": "child_development_psychology",
+      "prompt": "Which of the following reflects Piaget's theory of cognitive developmen)",
+      "options": [
+        "Children are passive learners",
+        "Learning is continuous and based on experience",
+        "Learning occurs in stages with active exploration",
+        "Development is unrelated to teaching methods"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Understand",
+      "competencyTag": "Child Development",
+      "maxScore": 1,
+      "order": 30
+    },
+    {
+      "id": "A31",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Pedagogical Mastery",
+      "domainKey": "lesson_planning",
+      "prompt": "You've designed a science project that's exciting, but students are missing key concepts. What should you d)",
+      "options": [
+        "Reduce project scope and reteach basics",
+        "Grade on effort",
+        "Ignore the gaps",
+        "Cancel the project"
+      ],
+      "correctOption": "A",
+      "bloomLevel": "Apply",
+      "competencyTag": "Lesson Planning",
+      "maxScore": 1,
+      "order": 31
+    },
+    {
+      "id": "A32",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Pedagogical Mastery",
+      "domainKey": "classroom_management",
+      "prompt": "A student keeps interrupting during your explanation. What's the best first ste)",
+      "options": [
+        "Ignore and continue",
+        "Send them out",
+        "Use humor to redirect",
+        "Call their parents"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Apply",
+      "competencyTag": "Classroom Management",
+      "maxScore": 1,
+      "order": 32
+    },
+    {
+      "id": "A33",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "You're using an AI chatbot for student feedback. What's the biggest ris)",
+      "options": [
+        "Bias in AI suggestions",
+        "Tool formatting",
+        "Privacy and transparency",
+        "Too creative"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Understand",
+      "competencyTag": "AI Risk Awareness",
+      "maxScore": 1,
+      "order": 33
+    },
+    {
+      "id": "A34",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "What's a responsible way to use generative AI in clas)",
+      "options": [
+        "Let AI grade everything",
+        "Use it to replace your slides",
+        "Explain how it works to students",
+        "Let students play with it unmonitored"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Analyze",
+      "competencyTag": "AI Integration",
+      "maxScore": 1,
+      "order": 34
+    },
+    {
+      "id": "A35",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Inclusive Practice",
+      "domainKey": "inclusive_education",
+      "prompt": "A student avoids group work due to social anxiety. Your best respons)",
+      "options": [
+        "Force participation",
+        "Let them opt out permanently",
+        "Offer alternative participation",
+        "Punish the student"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Apply",
+      "competencyTag": "Inclusive Practice",
+      "maxScore": 1,
+      "order": 35
+    },
+    {
+      "id": "A36",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Inclusive Practice",
+      "domainKey": "cultural_competence_dei",
+      "prompt": "You notice your lesson materials lack cultural diversity. What should you d)",
+      "options": [
+        "Ignore it for now",
+        "Use only diverse examples going forward",
+        "Reflect and revise materials",
+        "Let students decide"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Evaluate",
+      "competencyTag": "DEI",
+      "maxScore": 1,
+      "order": 36
+    },
+    {
+      "id": "A37",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Professional Identity",
+      "domainKey": "ethics_professionalism",
+      "prompt": "You made an error in grading. A student points it out. You shoul)",
+      "options": [
+        "Defend your grading",
+        "Admit the error",
+        "Blame the student",
+        "Do nothing"
+      ],
+      "correctOption": "B",
+      "bloomLevel": "Apply",
+      "competencyTag": "Ethics",
+      "maxScore": 1,
+      "order": 37
+    },
+    {
+      "id": "A38",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Professional Identity",
+      "domainKey": "lifelong_learning",
+      "prompt": "You're struggling to meet your school's PD hours. What should you d)",
+      "options": [
+        "Skip PD for now",
+        "Copy others' PD records",
+        "Log a plan and attend PDs later",
+        "Complain about lack of time"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Understand",
+      "competencyTag": "Lifelong Learning",
+      "maxScore": 1,
+      "order": 38
+    },
+    {
+      "id": "A39",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Global Citizenship",
+      "domainKey": "global_citizenship_sustainability",
+      "prompt": "How would you integrate SDGs into a primary lesso)",
+      "options": [
+        "Lecture on SDG goals",
+        "Add group work with token roles",
+        "Design a student-led sustainability project",
+        "Skip it—too complex"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Create",
+      "competencyTag": "Global Literacy",
+      "maxScore": 1,
+      "order": 39
+    },
+    {
+      "id": "A40",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Educational Foundations",
+      "domainKey": "child_development_psychology",
+      "prompt": "Which of the following reflects Piaget's theory of cognitive developmen)",
+      "options": [
+        "Children are passive learners",
+        "Learning is continuous and based on experience",
+        "Learning occurs in stages with active exploration",
+        "Development is unrelated to teaching methods"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Understand",
+      "competencyTag": "Child Development",
+      "maxScore": 1,
+      "order": 40
+    },
+    {
+      "id": "A41",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Pedagogical Mastery",
+      "domainKey": "lesson_planning",
+      "prompt": "You've designed a science project that's exciting, but students are missing key concepts. What should you d)",
+      "options": [
+        "Reduce project scope and reteach basics",
+        "Grade on effort",
+        "Ignore the gaps",
+        "Cancel the project"
+      ],
+      "correctOption": "A",
+      "bloomLevel": "Apply",
+      "competencyTag": "Lesson Planning",
+      "maxScore": 1,
+      "order": 41
+    },
+    {
+      "id": "A42",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Pedagogical Mastery",
+      "domainKey": "classroom_management",
+      "prompt": "A student keeps interrupting during your explanation. What's the best first ste)",
+      "options": [
+        "Ignore and continue",
+        "Send them out",
+        "Use humor to redirect",
+        "Call their parents"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Apply",
+      "competencyTag": "Classroom Management",
+      "maxScore": 1,
+      "order": 42
+    },
+    {
+      "id": "A43",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "You're using an AI chatbot for student feedback. What's the biggest ris)",
+      "options": [
+        "Bias in AI suggestions",
+        "Tool formatting",
+        "Privacy and transparency",
+        "Too creative"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Understand",
+      "competencyTag": "AI Risk Awareness",
+      "maxScore": 1,
+      "order": 43
+    },
+    {
+      "id": "A44",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "What's a responsible way to use generative AI in clas)",
+      "options": [
+        "Let AI grade everything",
+        "Use it to replace your slides",
+        "Explain how it works to students",
+        "Let students play with it unmonitored"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Analyze",
+      "competencyTag": "AI Integration",
+      "maxScore": 1,
+      "order": 44
+    },
+    {
+      "id": "A45",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Inclusive Practice",
+      "domainKey": "inclusive_education",
+      "prompt": "A student avoids group work due to social anxiety. Your best respons)",
+      "options": [
+        "Force participation",
+        "Let them opt out permanently",
+        "Offer alternative participation",
+        "Punish the student"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Apply",
+      "competencyTag": "Inclusive Practice",
+      "maxScore": 1,
+      "order": 45
+    },
+    {
+      "id": "A46",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Inclusive Practice",
+      "domainKey": "cultural_competence_dei",
+      "prompt": "You notice your lesson materials lack cultural diversity. What should you d)",
+      "options": [
+        "Ignore it for now",
+        "Use only diverse examples going forward",
+        "Reflect and revise materials",
+        "Let students decide"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Evaluate",
+      "competencyTag": "DEI",
+      "maxScore": 1,
+      "order": 46
+    },
+    {
+      "id": "A47",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Professional Identity",
+      "domainKey": "ethics_professionalism",
+      "prompt": "You made an error in grading. A student points it out. You shoul)",
+      "options": [
+        "Defend your grading",
+        "Admit the error",
+        "Blame the student",
+        "Do nothing"
+      ],
+      "correctOption": "B",
+      "bloomLevel": "Apply",
+      "competencyTag": "Ethics",
+      "maxScore": 1,
+      "order": 47
+    },
+    {
+      "id": "A48",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Professional Identity",
+      "domainKey": "lifelong_learning",
+      "prompt": "You're struggling to meet your school's PD hours. What should you d)",
+      "options": [
+        "Skip PD for now",
+        "Copy others' PD records",
+        "Log a plan and attend PDs later",
+        "Complain about lack of time"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Understand",
+      "competencyTag": "Lifelong Learning",
+      "maxScore": 1,
+      "order": 48
+    },
+    {
+      "id": "A49",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Global Citizenship",
+      "domainKey": "global_citizenship_sustainability",
+      "prompt": "How would you integrate SDGs into a primary lesso)",
+      "options": [
+        "Lecture on SDG goals",
+        "Add group work with token roles",
+        "Design a student-led sustainability project",
+        "Skip it—too complex"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Create",
+      "competencyTag": "Global Literacy",
+      "maxScore": 1,
+      "order": 49
+    },
+    {
+      "id": "A50",
+      "category": "A_MCQ",
+      "type": "MCQ",
+      "track": "Educational Foundations",
+      "domainKey": "child_development_psychology",
+      "prompt": "Which of the following reflects Piaget's theory of cognitive developmen)",
+      "options": [
+        "Children are passive learners",
+        "Learning is continuous and based on experience",
+        "Learning occurs in stages with active exploration",
+        "Development is unrelated to teaching methods"
+      ],
+      "correctOption": "C",
+      "bloomLevel": "Understand",
+      "competencyTag": "Child Development",
+      "maxScore": 1,
+      "order": 50
+    },
+    {
+      "id": "B1",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Pedagogical Mastery",
+      "domainKey": "lesson_planning",
+      "prompt": "Describe a time when your lesson failed. What did you learn?",
+      "scoringCriteria": "Clarity, reflection, lesson adaptation",
+      "maxScore": 9,
+      "order": 51
+    },
+    {
+      "id": "B2",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "How do you decide whether or not to use an AI tool in a lesson?",
+      "scoringCriteria": "Decision rationale, ethical awareness",
+      "maxScore": 9,
+      "order": 52
+    },
+    {
+      "id": "B3",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Inclusive Practice",
+      "domainKey": "differentiated_instruction",
+      "prompt": "Explain how you modify your lessons for students with learning disabilities.",
+      "scoringCriteria": "Specificity, scaffolding approach",
+      "maxScore": 9,
+      "order": 53
+    },
+    {
+      "id": "B4",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Professional Identity",
+      "domainKey": "reflective_practice",
+      "prompt": "What does professional growth mean to you as a teacher?",
+      "scoringCriteria": "Self-awareness, development mindset",
+      "maxScore": 9,
+      "order": 54
+    },
+    {
+      "id": "B5",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Global Citizenship",
+      "domainKey": "global_citizenship_sustainability",
+      "prompt": "How do you approach teaching controversial global topics?",
+      "scoringCriteria": "Neutrality, sensitivity, engagement",
+      "maxScore": 9,
+      "order": 55
+    },
+    {
+      "id": "B6",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Educational Foundations",
+      "domainKey": "child_development_psychology",
+      "prompt": "What role does child psychology play in your daily teaching practice?",
+      "scoringCriteria": "Application of theory to practice",
+      "maxScore": 9,
+      "order": 56
+    },
+    {
+      "id": "B7",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Inclusive Practice",
+      "domainKey": "cultural_competence_dei",
+      "prompt": "How do you make students from diverse cultures feel included in your class?",
+      "scoringCriteria": "Cultural sensitivity, inclusion methods",
+      "maxScore": 9,
+      "order": 57
+    },
+    {
+      "id": "B8",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "AI & Tech",
+      "domainKey": "edtech_fluency",
+      "prompt": "Describe a responsible use case of AI that improved your teaching.",
+      "scoringCriteria": "Tech integration, impact, responsibility",
+      "maxScore": 9,
+      "order": 58
+    },
+    {
+      "id": "B9",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Professional Identity",
+      "domainKey": "professional_collaboration",
+      "prompt": "Tell us about a moment when you mentored a colleague or peer.",
+      "scoringCriteria": "Support provided, collaboration",
+      "maxScore": 9,
+      "order": 59
+    },
+    {
+      "id": "B10",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Pedagogical Mastery",
+      "domainKey": "reflective_practice",
+      "prompt": "What strategies do you use to reflect on and improve your lessons?",
+      "scoringCriteria": "Reflection depth, iteration strategy",
+      "maxScore": 9,
+      "order": 60
+    },
+    {
+      "id": "B11",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Pedagogical Mastery",
+      "domainKey": "lesson_planning",
+      "prompt": "Describe a time when your lesson failed. What did you learn?",
+      "scoringCriteria": "Clarity, reflection, lesson adaptation",
+      "maxScore": 9,
+      "order": 61
+    },
+    {
+      "id": "B12",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "How do you decide whether or not to use an AI tool in a lesson?",
+      "scoringCriteria": "Decision rationale, ethical awareness",
+      "maxScore": 9,
+      "order": 62
+    },
+    {
+      "id": "B13",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Inclusive Practice",
+      "domainKey": "differentiated_instruction",
+      "prompt": "Explain how you modify your lessons for students with learning disabilities.",
+      "scoringCriteria": "Specificity, scaffolding approach",
+      "maxScore": 9,
+      "order": 63
+    },
+    {
+      "id": "B14",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Professional Identity",
+      "domainKey": "reflective_practice",
+      "prompt": "What does professional growth mean to you as a teacher?",
+      "scoringCriteria": "Self-awareness, development mindset",
+      "maxScore": 9,
+      "order": 64
+    },
+    {
+      "id": "B15",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Global Citizenship",
+      "domainKey": "global_citizenship_sustainability",
+      "prompt": "How do you approach teaching controversial global topics?",
+      "scoringCriteria": "Neutrality, sensitivity, engagement",
+      "maxScore": 9,
+      "order": 65
+    },
+    {
+      "id": "B16",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Educational Foundations",
+      "domainKey": "child_development_psychology",
+      "prompt": "What role does child psychology play in your daily teaching practice?",
+      "scoringCriteria": "Application of theory to practice",
+      "maxScore": 9,
+      "order": 66
+    },
+    {
+      "id": "B17",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Inclusive Practice",
+      "domainKey": "cultural_competence_dei",
+      "prompt": "How do you make students from diverse cultures feel included in your class?",
+      "scoringCriteria": "Cultural sensitivity, inclusion methods",
+      "maxScore": 9,
+      "order": 67
+    },
+    {
+      "id": "B18",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "AI & Tech",
+      "domainKey": "edtech_fluency",
+      "prompt": "Describe a responsible use case of AI that improved your teaching.",
+      "scoringCriteria": "Tech integration, impact, responsibility",
+      "maxScore": 9,
+      "order": 68
+    },
+    {
+      "id": "B19",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Professional Identity",
+      "domainKey": "professional_collaboration",
+      "prompt": "Tell us about a moment when you mentored a colleague or peer.",
+      "scoringCriteria": "Support provided, collaboration",
+      "maxScore": 9,
+      "order": 69
+    },
+    {
+      "id": "B20",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Pedagogical Mastery",
+      "domainKey": "reflective_practice",
+      "prompt": "What strategies do you use to reflect on and improve your lesson)",
+      "scoringCriteria": "Reflection depth, iteration strategy",
+      "maxScore": 9,
+      "order": 70
+    },
+    {
+      "id": "B21",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Pedagogical Mastery",
+      "domainKey": "lesson_planning",
+      "prompt": "Describe a time when your lesson failed. What did you lear)",
+      "scoringCriteria": "Clarity, reflection, lesson adaptation",
+      "maxScore": 9,
+      "order": 71
+    },
+    {
+      "id": "B22",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "How do you decide whether or not to use an AI tool in a lesso)",
+      "scoringCriteria": "Decision rationale, ethical awareness",
+      "maxScore": 9,
+      "order": 72
+    },
+    {
+      "id": "B23",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Inclusive Practice",
+      "domainKey": "differentiated_instruction",
+      "prompt": "Explain how you modify your lessons for students with learning disabilitie)",
+      "scoringCriteria": "Specificity, scaffolding approach",
+      "maxScore": 9,
+      "order": 73
+    },
+    {
+      "id": "B24",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Professional Identity",
+      "domainKey": "reflective_practice",
+      "prompt": "What does professional growth mean to you as a teache)",
+      "scoringCriteria": "Self-awareness, development mindset",
+      "maxScore": 9,
+      "order": 74
+    },
+    {
+      "id": "B25",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Global Citizenship",
+      "domainKey": "global_citizenship_sustainability",
+      "prompt": "How do you approach teaching controversial global topic)",
+      "scoringCriteria": "Neutrality, sensitivity, engagement",
+      "maxScore": 9,
+      "order": 75
+    },
+    {
+      "id": "B26",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Educational Foundations",
+      "domainKey": "child_development_psychology",
+      "prompt": "What role does child psychology play in your daily teaching practic)",
+      "scoringCriteria": "Application of theory to practice",
+      "maxScore": 9,
+      "order": 76
+    },
+    {
+      "id": "B27",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Inclusive Practice",
+      "domainKey": "cultural_competence_dei",
+      "prompt": "How do you make students from diverse cultures feel included in your clas)",
+      "scoringCriteria": "Cultural sensitivity, inclusion methods",
+      "maxScore": 9,
+      "order": 77
+    },
+    {
+      "id": "B28",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "AI & Tech",
+      "domainKey": "edtech_fluency",
+      "prompt": "Describe a responsible use case of AI that improved your teachin)",
+      "scoringCriteria": "Tech integration, impact, responsibility",
+      "maxScore": 9,
+      "order": 78
+    },
+    {
+      "id": "B29",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Professional Identity",
+      "domainKey": "professional_collaboration",
+      "prompt": "Tell us about a moment when you mentored a colleague or pee)",
+      "scoringCriteria": "Support provided, collaboration",
+      "maxScore": 9,
+      "order": 79
+    },
+    {
+      "id": "B30",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Pedagogical Mastery",
+      "domainKey": "reflective_practice",
+      "prompt": "What strategies do you use to reflect on and improve your lesson)",
+      "scoringCriteria": "Reflection depth, iteration strategy",
+      "maxScore": 9,
+      "order": 80
+    },
+    {
+      "id": "B31",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Pedagogical Mastery",
+      "domainKey": "lesson_planning",
+      "prompt": "Describe a time when your lesson failed. What did you lear)",
+      "scoringCriteria": "Clarity, reflection, lesson adaptation",
+      "maxScore": 9,
+      "order": 81
+    },
+    {
+      "id": "B32",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "How do you decide whether or not to use an AI tool in a lesso)",
+      "scoringCriteria": "Decision rationale, ethical awareness",
+      "maxScore": 9,
+      "order": 82
+    },
+    {
+      "id": "B33",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Inclusive Practice",
+      "domainKey": "differentiated_instruction",
+      "prompt": "Explain how you modify your lessons for students with learning disabilitie)",
+      "scoringCriteria": "Specificity, scaffolding approach",
+      "maxScore": 9,
+      "order": 83
+    },
+    {
+      "id": "B34",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Professional Identity",
+      "domainKey": "reflective_practice",
+      "prompt": "What does professional growth mean to you as a teache)",
+      "scoringCriteria": "Self-awareness, development mindset",
+      "maxScore": 9,
+      "order": 84
+    },
+    {
+      "id": "B35",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Global Citizenship",
+      "domainKey": "global_citizenship_sustainability",
+      "prompt": "How do you approach teaching controversial global topic)",
+      "scoringCriteria": "Neutrality, sensitivity, engagement",
+      "maxScore": 9,
+      "order": 85
+    },
+    {
+      "id": "B36",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Educational Foundations",
+      "domainKey": "child_development_psychology",
+      "prompt": "What role does child psychology play in your daily teaching practic)",
+      "scoringCriteria": "Application of theory to practice",
+      "maxScore": 9,
+      "order": 86
+    },
+    {
+      "id": "B37",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Inclusive Practice",
+      "domainKey": "cultural_competence_dei",
+      "prompt": "How do you make students from diverse cultures feel included in your clas)",
+      "scoringCriteria": "Cultural sensitivity, inclusion methods",
+      "maxScore": 9,
+      "order": 87
+    },
+    {
+      "id": "B38",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "AI & Tech",
+      "domainKey": "edtech_fluency",
+      "prompt": "Describe a responsible use case of AI that improved your teachin)",
+      "scoringCriteria": "Tech integration, impact, responsibility",
+      "maxScore": 9,
+      "order": 88
+    },
+    {
+      "id": "B39",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Professional Identity",
+      "domainKey": "professional_collaboration",
+      "prompt": "Tell us about a moment when you mentored a colleague or pee)",
+      "scoringCriteria": "Support provided, collaboration",
+      "maxScore": 9,
+      "order": 89
+    },
+    {
+      "id": "B40",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Pedagogical Mastery",
+      "domainKey": "reflective_practice",
+      "prompt": "What strategies do you use to reflect on and improve your lesson)",
+      "scoringCriteria": "Reflection depth, iteration strategy",
+      "maxScore": 9,
+      "order": 90
+    },
+    {
+      "id": "B41",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Pedagogical Mastery",
+      "domainKey": "lesson_planning",
+      "prompt": "Describe a time when your lesson failed. What did you lear)",
+      "scoringCriteria": "Clarity, reflection, lesson adaptation",
+      "maxScore": 9,
+      "order": 91
+    },
+    {
+      "id": "B42",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "How do you decide whether or not to use an AI tool in a lesso)",
+      "scoringCriteria": "Decision rationale, ethical awareness",
+      "maxScore": 9,
+      "order": 92
+    },
+    {
+      "id": "B43",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Inclusive Practice",
+      "domainKey": "differentiated_instruction",
+      "prompt": "Explain how you modify your lessons for students with learning disabilitie)",
+      "scoringCriteria": "Specificity, scaffolding approach",
+      "maxScore": 9,
+      "order": 93
+    },
+    {
+      "id": "B44",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Professional Identity",
+      "domainKey": "reflective_practice",
+      "prompt": "What does professional growth mean to you as a teache)",
+      "scoringCriteria": "Self-awareness, development mindset",
+      "maxScore": 9,
+      "order": 94
+    },
+    {
+      "id": "B45",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Global Citizenship",
+      "domainKey": "global_citizenship_sustainability",
+      "prompt": "How do you approach teaching controversial global topic)",
+      "scoringCriteria": "Neutrality, sensitivity, engagement",
+      "maxScore": 9,
+      "order": 95
+    },
+    {
+      "id": "B46",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Educational Foundations",
+      "domainKey": "child_development_psychology",
+      "prompt": "What role does child psychology play in your daily teaching practic)",
+      "scoringCriteria": "Application of theory to practice",
+      "maxScore": 9,
+      "order": 96
+    },
+    {
+      "id": "B47",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Inclusive Practice",
+      "domainKey": "cultural_competence_dei",
+      "prompt": "How do you make students from diverse cultures feel included in your clas)",
+      "scoringCriteria": "Cultural sensitivity, inclusion methods",
+      "maxScore": 9,
+      "order": 97
+    },
+    {
+      "id": "B48",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "AI & Tech",
+      "domainKey": "edtech_fluency",
+      "prompt": "Describe a responsible use case of AI that improved your teachin)",
+      "scoringCriteria": "Tech integration, impact, responsibility",
+      "maxScore": 9,
+      "order": 98
+    },
+    {
+      "id": "B49",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Professional Identity",
+      "domainKey": "professional_collaboration",
+      "prompt": "Tell us about a moment when you mentored a colleague or pee)",
+      "scoringCriteria": "Support provided, collaboration",
+      "maxScore": 9,
+      "order": 99
+    },
+    {
+      "id": "B50",
+      "category": "B_SHORT_ANSWER",
+      "type": "SHORT_ANSWER",
+      "track": "Pedagogical Mastery",
+      "domainKey": "reflective_practice",
+      "prompt": "What strategies do you use to reflect on and improve your lesson)",
+      "scoringCriteria": "Reflection depth, iteration strategy",
+      "maxScore": 9,
+      "order": 100
+    },
+    {
+      "id": "C1",
+      "category": "C1_AUDIO_ROLEPLAY",
+      "type": "AUDIO",
+      "track": "Pedagogical Mastery",
+      "domainKey": "parent_stakeholder_communication",
+      "prompt": "You're explaining your teaching approach to a skeptical parent. Speak as you would in a real conversation.",
+      "scoringCriteria": "Clarity, empathy, professionalism",
+      "maxScore": 9,
+      "order": 101
+    },
+    {
+      "id": "C2",
+      "category": "C1_AUDIO_ROLEPLAY",
+      "type": "AUDIO",
+      "track": "Inclusive Practice",
+      "domainKey": "social_emotional_learning",
+      "prompt": "A student feels left out of group activities. Respond with empathy and solutions.",
+      "scoringCriteria": "Sensitivity, problem-solving",
+      "maxScore": 9,
+      "order": 102
+    },
+    {
+      "id": "C3",
+      "category": "C1_AUDIO_ROLEPLAY",
+      "type": "AUDIO",
+      "track": "Professional Identity",
+      "domainKey": "ethics_professionalism",
+      "prompt": "A colleague is violating school policies. Confront them diplomatically.",
+      "scoringCriteria": "Respect, compliance, communication",
+      "maxScore": 9,
+      "order": 103
+    },
+    {
+      "id": "C4",
+      "category": "C1_AUDIO_ROLEPLAY",
+      "type": "AUDIO",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "You're advocating for AI tools to your school head. Make your case clearly.",
+      "scoringCriteria": "Logic, clarity, ethical considerations",
+      "maxScore": 9,
+      "order": 104
+    },
+    {
+      "id": "C5",
+      "category": "C1_AUDIO_ROLEPLAY",
+      "type": "AUDIO",
+      "track": "Global Citizenship",
+      "domainKey": "global_citizenship_sustainability",
+      "prompt": "Explain how you integrate SDGs in your curriculum to a fellow teacher.",
+      "scoringCriteria": "Global awareness, instructional alignment",
+      "maxScore": 9,
+      "order": 105
+    },
+    {
+      "id": "C6",
+      "category": "C1_AUDIO_ROLEPLAY",
+      "type": "AUDIO",
+      "track": "Pedagogical Mastery",
+      "domainKey": "classroom_management",
+      "prompt": "Coach a struggling new teacher about effective classroom routines.",
+      "scoringCriteria": "Mentorship, tone, guidance",
+      "maxScore": 9,
+      "order": 106
+    },
+    {
+      "id": "C7",
+      "category": "C1_AUDIO_ROLEPLAY",
+      "type": "AUDIO",
+      "track": "Inclusive Practice",
+      "domainKey": "cultural_competence_dei",
+      "prompt": "Handle a conflict between students from different cultural backgrounds.",
+      "scoringCriteria": "Conflict resolution, DEI awareness",
+      "maxScore": 9,
+      "order": 107
+    },
+    {
+      "id": "C8",
+      "category": "C1_AUDIO_ROLEPLAY",
+      "type": "AUDIO",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "Demonstrate how you introduce an AI writing assistant to a class.",
+      "scoringCriteria": "Simplicity, safety, guidance",
+      "maxScore": 9,
+      "order": 108
+    },
+    {
+      "id": "C9",
+      "category": "C1_AUDIO_ROLEPLAY",
+      "type": "AUDIO",
+      "track": "Professional Identity",
+      "domainKey": "parent_stakeholder_communication",
+      "prompt": "Speak to a parent about a student's social-emotional challenges.",
+      "scoringCriteria": "Empathy, support strategies",
+      "maxScore": 9,
+      "order": 109
+    },
+    {
+      "id": "C10",
+      "category": "C1_AUDIO_ROLEPLAY",
+      "type": "AUDIO",
+      "track": "Educational Foundations",
+      "domainKey": "child_development_psychology",
+      "prompt": "Describe the importance of learning theories in shaping your lesson plans.",
+      "scoringCriteria": "Knowledge application, articulation",
+      "maxScore": 9,
+      "order": 110
+    },
+    {
+      "id": "C11",
+      "category": "C1_AUDIO_ROLEPLAY",
+      "type": "AUDIO",
+      "track": "Pedagogical Mastery",
+      "domainKey": "parent_stakeholder_communication",
+      "prompt": "You're explaining your teaching approach to a skeptical parent. Speak as you would in a real conversation.",
+      "scoringCriteria": "Clarity, empathy, professionalism",
+      "maxScore": 9,
+      "order": 111
+    },
+    {
+      "id": "C12",
+      "category": "C1_AUDIO_ROLEPLAY",
+      "type": "AUDIO",
+      "track": "Inclusive Practice",
+      "domainKey": "social_emotional_learning",
+      "prompt": "A student feels left out of group activities. Respond with empathy and solutions.",
+      "scoringCriteria": "Sensitivity, problem-solving",
+      "maxScore": 9,
+      "order": 112
+    },
+    {
+      "id": "C13",
+      "category": "C1_AUDIO_ROLEPLAY",
+      "type": "AUDIO",
+      "track": "Professional Identity",
+      "domainKey": "ethics_professionalism",
+      "prompt": "A colleague is violating school policies. Confront them diplomatically.",
+      "scoringCriteria": "Respect, compliance, communication",
+      "maxScore": 9,
+      "order": 113
+    },
+    {
+      "id": "C14",
+      "category": "C1_AUDIO_ROLEPLAY",
+      "type": "AUDIO",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "You're advocating for AI tools to your school head. Make your case clearly.",
+      "scoringCriteria": "Logic, clarity, ethical considerations",
+      "maxScore": 9,
+      "order": 114
+    },
+    {
+      "id": "C15",
+      "category": "C1_AUDIO_ROLEPLAY",
+      "type": "AUDIO",
+      "track": "Global Citizenship",
+      "domainKey": "global_citizenship_sustainability",
+      "prompt": "Explain how you integrate SDGs in your curriculum to a fellow teacher.",
+      "scoringCriteria": "Global awareness, instructional alignment",
+      "maxScore": 9,
+      "order": 115
+    },
+    {
+      "id": "C16",
+      "category": "C1_AUDIO_ROLEPLAY",
+      "type": "AUDIO",
+      "track": "Pedagogical Mastery",
+      "domainKey": "classroom_management",
+      "prompt": "Coach a struggling new teacher about effective classroom routines.",
+      "scoringCriteria": "Mentorship, tone, guidance",
+      "maxScore": 9,
+      "order": 116
+    },
+    {
+      "id": "C17",
+      "category": "C1_AUDIO_ROLEPLAY",
+      "type": "AUDIO",
+      "track": "Inclusive Practice",
+      "domainKey": "cultural_competence_dei",
+      "prompt": "Handle a conflict between students from different cultural backgrounds.",
+      "scoringCriteria": "Conflict resolution, DEI awareness",
+      "maxScore": 9,
+      "order": 117
+    },
+    {
+      "id": "C18",
+      "category": "C1_AUDIO_ROLEPLAY",
+      "type": "AUDIO",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "Demonstrate how you introduce an AI writing assistant to a class.",
+      "scoringCriteria": "Simplicity, safety, guidance",
+      "maxScore": 9,
+      "order": 118
+    },
+    {
+      "id": "C19",
+      "category": "C1_AUDIO_ROLEPLAY",
+      "type": "AUDIO",
+      "track": "Professional Identity",
+      "domainKey": "parent_stakeholder_communication",
+      "prompt": "Speak to a parent about a student's social-emotional challenges.",
+      "scoringCriteria": "Empathy, support strategies",
+      "maxScore": 9,
+      "order": 119
+    },
+    {
+      "id": "C20",
+      "category": "C1_AUDIO_ROLEPLAY",
+      "type": "AUDIO",
+      "track": "Educational Foundations",
+      "domainKey": "child_development_psychology",
+      "prompt": "Describe the importance of learning theories in shaping your lesson plan)",
+      "scoringCriteria": "Knowledge application, articulation",
+      "maxScore": 9,
+      "order": 120
+    },
+    {
+      "id": "C21",
+      "category": "C1_AUDIO_ROLEPLAY",
+      "type": "AUDIO",
+      "track": "Pedagogical Mastery",
+      "domainKey": "parent_stakeholder_communication",
+      "prompt": "You're explaining your teaching approach to a skeptical parent. Speak as you would in a real conversatio)",
+      "scoringCriteria": "Clarity, empathy, professionalism",
+      "maxScore": 9,
+      "order": 121
+    },
+    {
+      "id": "C22",
+      "category": "C1_AUDIO_ROLEPLAY",
+      "type": "AUDIO",
+      "track": "Inclusive Practice",
+      "domainKey": "social_emotional_learning",
+      "prompt": "A student feels left out of group activities. Respond with empathy and solution)",
+      "scoringCriteria": "Sensitivity, problem-solving",
+      "maxScore": 9,
+      "order": 122
+    },
+    {
+      "id": "C23",
+      "category": "C1_AUDIO_ROLEPLAY",
+      "type": "AUDIO",
+      "track": "Professional Identity",
+      "domainKey": "ethics_professionalism",
+      "prompt": "A colleague is violating school policies. Confront them diplomaticall)",
+      "scoringCriteria": "Respect, compliance, communication",
+      "maxScore": 9,
+      "order": 123
+    },
+    {
+      "id": "C24",
+      "category": "C1_AUDIO_ROLEPLAY",
+      "type": "AUDIO",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "You're advocating for AI tools to your school head. Make your case clearl)",
+      "scoringCriteria": "Logic, clarity, ethical considerations",
+      "maxScore": 9,
+      "order": 124
+    },
+    {
+      "id": "C25",
+      "category": "C1_AUDIO_ROLEPLAY",
+      "type": "AUDIO",
+      "track": "Global Citizenship",
+      "domainKey": "global_citizenship_sustainability",
+      "prompt": "Explain how you integrate SDGs in your curriculum to a fellow teache)",
+      "scoringCriteria": "Global awareness, instructional alignment",
+      "maxScore": 9,
+      "order": 125
+    },
+    {
+      "id": "C26",
+      "category": "C2_VIDEO_ROLEPLAY",
+      "type": "VIDEO",
+      "track": "Pedagogical Mastery",
+      "domainKey": "classroom_management",
+      "prompt": "Coach a struggling new teacher about effective classroom routine)",
+      "scoringCriteria": "Mentorship, tone, guidance",
+      "maxScore": 9,
+      "order": 126
+    },
+    {
+      "id": "C27",
+      "category": "C2_VIDEO_ROLEPLAY",
+      "type": "VIDEO",
+      "track": "Inclusive Practice",
+      "domainKey": "cultural_competence_dei",
+      "prompt": "Handle a conflict between students from different cultural background)",
+      "scoringCriteria": "Conflict resolution, DEI awareness",
+      "maxScore": 9,
+      "order": 127
+    },
+    {
+      "id": "C28",
+      "category": "C2_VIDEO_ROLEPLAY",
+      "type": "VIDEO",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "Demonstrate how you introduce an AI writing assistant to a clas)",
+      "scoringCriteria": "Simplicity, safety, guidance",
+      "maxScore": 9,
+      "order": 128
+    },
+    {
+      "id": "C29",
+      "category": "C2_VIDEO_ROLEPLAY",
+      "type": "VIDEO",
+      "track": "Professional Identity",
+      "domainKey": "parent_stakeholder_communication",
+      "prompt": "Speak to a parent about a student's social-emotional challenge)",
+      "scoringCriteria": "Empathy, support strategies",
+      "maxScore": 9,
+      "order": 129
+    },
+    {
+      "id": "C30",
+      "category": "C2_VIDEO_ROLEPLAY",
+      "type": "VIDEO",
+      "track": "Educational Foundations",
+      "domainKey": "child_development_psychology",
+      "prompt": "Describe the importance of learning theories in shaping your lesson plan)",
+      "scoringCriteria": "Knowledge application, articulation",
+      "maxScore": 9,
+      "order": 130
+    },
+    {
+      "id": "C31",
+      "category": "C2_VIDEO_ROLEPLAY",
+      "type": "VIDEO",
+      "track": "Pedagogical Mastery",
+      "domainKey": "parent_stakeholder_communication",
+      "prompt": "You're explaining your teaching approach to a skeptical parent. Speak as you would in a real conversatio)",
+      "scoringCriteria": "Clarity, empathy, professionalism",
+      "maxScore": 9,
+      "order": 131
+    },
+    {
+      "id": "C32",
+      "category": "C2_VIDEO_ROLEPLAY",
+      "type": "VIDEO",
+      "track": "Inclusive Practice",
+      "domainKey": "social_emotional_learning",
+      "prompt": "A student feels left out of group activities. Respond with empathy and solution)",
+      "scoringCriteria": "Sensitivity, problem-solving",
+      "maxScore": 9,
+      "order": 132
+    },
+    {
+      "id": "C33",
+      "category": "C2_VIDEO_ROLEPLAY",
+      "type": "VIDEO",
+      "track": "Professional Identity",
+      "domainKey": "ethics_professionalism",
+      "prompt": "A colleague is violating school policies. Confront them diplomaticall)",
+      "scoringCriteria": "Respect, compliance, communication",
+      "maxScore": 9,
+      "order": 133
+    },
+    {
+      "id": "C34",
+      "category": "C2_VIDEO_ROLEPLAY",
+      "type": "VIDEO",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "You're advocating for AI tools to your school head. Make your case clearl)",
+      "scoringCriteria": "Logic, clarity, ethical considerations",
+      "maxScore": 9,
+      "order": 134
+    },
+    {
+      "id": "C35",
+      "category": "C2_VIDEO_ROLEPLAY",
+      "type": "VIDEO",
+      "track": "Global Citizenship",
+      "domainKey": "global_citizenship_sustainability",
+      "prompt": "Explain how you integrate SDGs in your curriculum to a fellow teache)",
+      "scoringCriteria": "Global awareness, instructional alignment",
+      "maxScore": 9,
+      "order": 135
+    },
+    {
+      "id": "C36",
+      "category": "C2_VIDEO_ROLEPLAY",
+      "type": "VIDEO",
+      "track": "Pedagogical Mastery",
+      "domainKey": "classroom_management",
+      "prompt": "Coach a struggling new teacher about effective classroom routine)",
+      "scoringCriteria": "Mentorship, tone, guidance",
+      "maxScore": 9,
+      "order": 136
+    },
+    {
+      "id": "C37",
+      "category": "C2_VIDEO_ROLEPLAY",
+      "type": "VIDEO",
+      "track": "Inclusive Practice",
+      "domainKey": "cultural_competence_dei",
+      "prompt": "Handle a conflict between students from different cultural background)",
+      "scoringCriteria": "Conflict resolution, DEI awareness",
+      "maxScore": 9,
+      "order": 137
+    },
+    {
+      "id": "C38",
+      "category": "C2_VIDEO_ROLEPLAY",
+      "type": "VIDEO",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "Demonstrate how you introduce an AI writing assistant to a clas)",
+      "scoringCriteria": "Simplicity, safety, guidance",
+      "maxScore": 9,
+      "order": 138
+    },
+    {
+      "id": "C39",
+      "category": "C2_VIDEO_ROLEPLAY",
+      "type": "VIDEO",
+      "track": "Professional Identity",
+      "domainKey": "parent_stakeholder_communication",
+      "prompt": "Speak to a parent about a student's social-emotional challenge)",
+      "scoringCriteria": "Empathy, support strategies",
+      "maxScore": 9,
+      "order": 139
+    },
+    {
+      "id": "C40",
+      "category": "C2_VIDEO_ROLEPLAY",
+      "type": "VIDEO",
+      "track": "Educational Foundations",
+      "domainKey": "child_development_psychology",
+      "prompt": "Describe the importance of learning theories in shaping your lesson plan)",
+      "scoringCriteria": "Knowledge application, articulation",
+      "maxScore": 9,
+      "order": 140
+    },
+    {
+      "id": "C41",
+      "category": "C2_VIDEO_ROLEPLAY",
+      "type": "VIDEO",
+      "track": "Pedagogical Mastery",
+      "domainKey": "parent_stakeholder_communication",
+      "prompt": "You're explaining your teaching approach to a skeptical parent. Speak as you would in a real conversatio)",
+      "scoringCriteria": "Clarity, empathy, professionalism",
+      "maxScore": 9,
+      "order": 141
+    },
+    {
+      "id": "C42",
+      "category": "C2_VIDEO_ROLEPLAY",
+      "type": "VIDEO",
+      "track": "Inclusive Practice",
+      "domainKey": "social_emotional_learning",
+      "prompt": "A student feels left out of group activities. Respond with empathy and solution)",
+      "scoringCriteria": "Sensitivity, problem-solving",
+      "maxScore": 9,
+      "order": 142
+    },
+    {
+      "id": "C43",
+      "category": "C2_VIDEO_ROLEPLAY",
+      "type": "VIDEO",
+      "track": "Professional Identity",
+      "domainKey": "ethics_professionalism",
+      "prompt": "A colleague is violating school policies. Confront them diplomaticall)",
+      "scoringCriteria": "Respect, compliance, communication",
+      "maxScore": 9,
+      "order": 143
+    },
+    {
+      "id": "C44",
+      "category": "C2_VIDEO_ROLEPLAY",
+      "type": "VIDEO",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "You're advocating for AI tools to your school head. Make your case clearl)",
+      "scoringCriteria": "Logic, clarity, ethical considerations",
+      "maxScore": 9,
+      "order": 144
+    },
+    {
+      "id": "C45",
+      "category": "C2_VIDEO_ROLEPLAY",
+      "type": "VIDEO",
+      "track": "Global Citizenship",
+      "domainKey": "global_citizenship_sustainability",
+      "prompt": "Explain how you integrate SDGs in your curriculum to a fellow teache)",
+      "scoringCriteria": "Global awareness, instructional alignment",
+      "maxScore": 9,
+      "order": 145
+    },
+    {
+      "id": "C46",
+      "category": "C2_VIDEO_ROLEPLAY",
+      "type": "VIDEO",
+      "track": "Pedagogical Mastery",
+      "domainKey": "classroom_management",
+      "prompt": "Coach a struggling new teacher about effective classroom routine)",
+      "scoringCriteria": "Mentorship, tone, guidance",
+      "maxScore": 9,
+      "order": 146
+    },
+    {
+      "id": "C47",
+      "category": "C2_VIDEO_ROLEPLAY",
+      "type": "VIDEO",
+      "track": "Inclusive Practice",
+      "domainKey": "cultural_competence_dei",
+      "prompt": "Handle a conflict between students from different cultural background)",
+      "scoringCriteria": "Conflict resolution, DEI awareness",
+      "maxScore": 9,
+      "order": 147
+    },
+    {
+      "id": "C48",
+      "category": "C2_VIDEO_ROLEPLAY",
+      "type": "VIDEO",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "Demonstrate how you introduce an AI writing assistant to a clas)",
+      "scoringCriteria": "Simplicity, safety, guidance",
+      "maxScore": 9,
+      "order": 148
+    },
+    {
+      "id": "C49",
+      "category": "C2_VIDEO_ROLEPLAY",
+      "type": "VIDEO",
+      "track": "Professional Identity",
+      "domainKey": "parent_stakeholder_communication",
+      "prompt": "Speak to a parent about a student's social-emotional challenge)",
+      "scoringCriteria": "Empathy, support strategies",
+      "maxScore": 9,
+      "order": 149
+    },
+    {
+      "id": "C50",
+      "category": "C2_VIDEO_ROLEPLAY",
+      "type": "VIDEO",
+      "track": "Educational Foundations",
+      "domainKey": "child_development_psychology",
+      "prompt": "Describe the importance of learning theories in shaping your lesson plan)",
+      "scoringCriteria": "Knowledge application, articulation",
+      "maxScore": 9,
+      "order": 150
+    },
+    {
+      "id": "D1",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "I feel confident using AI tools to support student learning.",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 151
+    },
+    {
+      "id": "D2",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Pedagogical Mastery",
+      "domainKey": "assessment_feedback",
+      "prompt": "I adjust my teaching based on ongoing student feedback.",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 152
+    },
+    {
+      "id": "D3",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Inclusive Practice",
+      "domainKey": "inclusive_education",
+      "prompt": "I know how to support neurodiverse learners effectively.",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 153
+    },
+    {
+      "id": "D4",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Professional Identity",
+      "domainKey": "reflective_practice",
+      "prompt": "I consistently reflect on my teaching to improve it.",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 154
+    },
+    {
+      "id": "D5",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Global Citizenship",
+      "domainKey": "global_citizenship_sustainability",
+      "prompt": "I integrate global issues like sustainability in my lessons.",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 155
+    },
+    {
+      "id": "D6",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Educational Foundations",
+      "domainKey": "child_development_psychology",
+      "prompt": "I understand how children develop across different age groups.",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 156
+    },
+    {
+      "id": "D7",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Inclusive Practice",
+      "domainKey": "inclusive_education",
+      "prompt": "I design inclusive learning environments for all students.",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 157
+    },
+    {
+      "id": "D8",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "AI & Tech",
+      "domainKey": "cybersecurity_digital_citizenship",
+      "prompt": "I understand the ethical risks of using AI in class.",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 158
+    },
+    {
+      "id": "D9",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Professional Identity",
+      "domainKey": "professional_collaboration",
+      "prompt": "I welcome constructive feedback from my colleagues.",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 159
+    },
+    {
+      "id": "D10",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Pedagogical Mastery",
+      "domainKey": "instructional_strategies",
+      "prompt": "I use questioning techniques to promote deep thinking.",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 160
+    },
+    {
+      "id": "D11",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "I feel confident using AI tools to support student learning.",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 161
+    },
+    {
+      "id": "D12",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Pedagogical Mastery",
+      "domainKey": "assessment_feedback",
+      "prompt": "I adjust my teaching based on ongoing student feedback.",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 162
+    },
+    {
+      "id": "D13",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Inclusive Practice",
+      "domainKey": "inclusive_education",
+      "prompt": "I know how to support neurodiverse learners effectively.",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 163
+    },
+    {
+      "id": "D14",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Professional Identity",
+      "domainKey": "reflective_practice",
+      "prompt": "I consistently reflect on my teaching to improve it.",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 164
+    },
+    {
+      "id": "D15",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Global Citizenship",
+      "domainKey": "global_citizenship_sustainability",
+      "prompt": "I integrate global issues like sustainability in my lessons.",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 165
+    },
+    {
+      "id": "D16",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Educational Foundations",
+      "domainKey": "child_development_psychology",
+      "prompt": "I understand how children develop across different age groups.",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 166
+    },
+    {
+      "id": "D17",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Inclusive Practice",
+      "domainKey": "inclusive_education",
+      "prompt": "I design inclusive learning environments for all students.",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 167
+    },
+    {
+      "id": "D18",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "AI & Tech",
+      "domainKey": "cybersecurity_digital_citizenship",
+      "prompt": "I understand the ethical risks of using AI in class.",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 168
+    },
+    {
+      "id": "D19",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Professional Identity",
+      "domainKey": "professional_collaboration",
+      "prompt": "I welcome constructive feedback from my colleagues.",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 169
+    },
+    {
+      "id": "D20",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Pedagogical Mastery",
+      "domainKey": "instructional_strategies",
+      "prompt": "I use questioning techniques to promote deep thinkin)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 170
+    },
+    {
+      "id": "D21",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "I feel confident using AI tools to support student learnin)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 171
+    },
+    {
+      "id": "D22",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Pedagogical Mastery",
+      "domainKey": "assessment_feedback",
+      "prompt": "I adjust my teaching based on ongoing student feedbac)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 172
+    },
+    {
+      "id": "D23",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Inclusive Practice",
+      "domainKey": "inclusive_education",
+      "prompt": "I know how to support neurodiverse learners effectivel)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 173
+    },
+    {
+      "id": "D24",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Professional Identity",
+      "domainKey": "reflective_practice",
+      "prompt": "I consistently reflect on my teaching to improve i)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 174
+    },
+    {
+      "id": "D25",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Global Citizenship",
+      "domainKey": "global_citizenship_sustainability",
+      "prompt": "I integrate global issues like sustainability in my lesson)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 175
+    },
+    {
+      "id": "D26",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Educational Foundations",
+      "domainKey": "child_development_psychology",
+      "prompt": "I understand how children develop across different age group)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 176
+    },
+    {
+      "id": "D27",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Inclusive Practice",
+      "domainKey": "inclusive_education",
+      "prompt": "I design inclusive learning environments for all student)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 177
+    },
+    {
+      "id": "D28",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "AI & Tech",
+      "domainKey": "cybersecurity_digital_citizenship",
+      "prompt": "I understand the ethical risks of using AI in clas)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 178
+    },
+    {
+      "id": "D29",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Professional Identity",
+      "domainKey": "professional_collaboration",
+      "prompt": "I welcome constructive feedback from my colleague)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 179
+    },
+    {
+      "id": "D30",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Pedagogical Mastery",
+      "domainKey": "instructional_strategies",
+      "prompt": "I use questioning techniques to promote deep thinkin)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 180
+    },
+    {
+      "id": "D31",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "I feel confident using AI tools to support student learnin)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 181
+    },
+    {
+      "id": "D32",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Pedagogical Mastery",
+      "domainKey": "assessment_feedback",
+      "prompt": "I adjust my teaching based on ongoing student feedbac)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 182
+    },
+    {
+      "id": "D33",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Inclusive Practice",
+      "domainKey": "inclusive_education",
+      "prompt": "I know how to support neurodiverse learners effectivel)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 183
+    },
+    {
+      "id": "D34",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Professional Identity",
+      "domainKey": "reflective_practice",
+      "prompt": "I consistently reflect on my teaching to improve i)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 184
+    },
+    {
+      "id": "D35",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Global Citizenship",
+      "domainKey": "global_citizenship_sustainability",
+      "prompt": "I integrate global issues like sustainability in my lesson)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 185
+    },
+    {
+      "id": "D36",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Educational Foundations",
+      "domainKey": "child_development_psychology",
+      "prompt": "I understand how children develop across different age group)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 186
+    },
+    {
+      "id": "D37",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Inclusive Practice",
+      "domainKey": "inclusive_education",
+      "prompt": "I design inclusive learning environments for all student)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 187
+    },
+    {
+      "id": "D38",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "AI & Tech",
+      "domainKey": "cybersecurity_digital_citizenship",
+      "prompt": "I understand the ethical risks of using AI in clas)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 188
+    },
+    {
+      "id": "D39",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Professional Identity",
+      "domainKey": "professional_collaboration",
+      "prompt": "I welcome constructive feedback from my colleague)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 189
+    },
+    {
+      "id": "D40",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Pedagogical Mastery",
+      "domainKey": "instructional_strategies",
+      "prompt": "I use questioning techniques to promote deep thinkin)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 190
+    },
+    {
+      "id": "D41",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "I feel confident using AI tools to support student learnin)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 191
+    },
+    {
+      "id": "D42",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Pedagogical Mastery",
+      "domainKey": "assessment_feedback",
+      "prompt": "I adjust my teaching based on ongoing student feedbac)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 192
+    },
+    {
+      "id": "D43",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Inclusive Practice",
+      "domainKey": "inclusive_education",
+      "prompt": "I know how to support neurodiverse learners effectivel)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 193
+    },
+    {
+      "id": "D44",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Professional Identity",
+      "domainKey": "reflective_practice",
+      "prompt": "I consistently reflect on my teaching to improve i)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 194
+    },
+    {
+      "id": "D45",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Global Citizenship",
+      "domainKey": "global_citizenship_sustainability",
+      "prompt": "I integrate global issues like sustainability in my lesson)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 195
+    },
+    {
+      "id": "D46",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Educational Foundations",
+      "domainKey": "child_development_psychology",
+      "prompt": "I understand how children develop across different age group)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 196
+    },
+    {
+      "id": "D47",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Inclusive Practice",
+      "domainKey": "inclusive_education",
+      "prompt": "I design inclusive learning environments for all student)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 197
+    },
+    {
+      "id": "D48",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "AI & Tech",
+      "domainKey": "cybersecurity_digital_citizenship",
+      "prompt": "I understand the ethical risks of using AI in clas)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 198
+    },
+    {
+      "id": "D49",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Professional Identity",
+      "domainKey": "professional_collaboration",
+      "prompt": "I welcome constructive feedback from my colleague)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 199
+    },
+    {
+      "id": "D50",
+      "category": "D_SELF_PERCEPTION",
+      "type": "MCQ",
+      "track": "Pedagogical Mastery",
+      "domainKey": "instructional_strategies",
+      "prompt": "I use questioning techniques to promote deep thinkin)",
+      "options": [
+        "1 - Strongly Disagree",
+        "2 - Disagree",
+        "3 - Neutral",
+        "4 - Agree",
+        "5 - Strongly Agree"
+      ],
+      "maxScore": 5,
+      "order": 200
+    },
+    {
+      "id": "E1",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Professional Identity",
+      "domainKey": "ethics_professionalism",
+      "prompt": "You catch a student cheating. What do you do?",
+      "bestResponse": "Privately address it, apply school policy, and offer a learning opportunity",
+      "maxScore": 9,
+      "order": 201
+    },
+    {
+      "id": "E2",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Pedagogical Mastery",
+      "domainKey": "lesson_planning",
+      "prompt": "You're forced to teach a lesson outside your subject expertise. How do you respond?",
+      "bestResponse": "Consult peers, gather resources, prepare responsibly",
+      "maxScore": 9,
+      "order": 202
+    },
+    {
+      "id": "E3",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Inclusive Practice",
+      "domainKey": "cultural_competence_dei",
+      "prompt": "A parent complains about gender representation in your materials.",
+      "bestResponse": "Review materials, consult stakeholders, update content if needed",
+      "maxScore": 9,
+      "order": 203
+    },
+    {
+      "id": "E4",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "Your school bans a commonly used AI tool. You disagree. What now?",
+      "bestResponse": "Raise concerns professionally and suggest alternatives",
+      "maxScore": 9,
+      "order": 204
+    },
+    {
+      "id": "E5",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Global Citizenship",
+      "domainKey": "global_citizenship_sustainability",
+      "prompt": "A student challenges your lesson on climate change as 'biased'.",
+      "bestResponse": "Facilitate respectful dialogue, acknowledge perspectives",
+      "maxScore": 9,
+      "order": 205
+    },
+    {
+      "id": "E6",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Professional Identity",
+      "domainKey": "ethics_professionalism",
+      "prompt": "You're asked to lie to cover a scheduling error. What do you do?",
+      "bestResponse": "Refuse and explain ethical stance",
+      "maxScore": 9,
+      "order": 206
+    },
+    {
+      "id": "E7",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Inclusive Practice",
+      "domainKey": "social_emotional_learning",
+      "prompt": "A student refuses to participate in group work due to anxiety.",
+      "bestResponse": "Offer alternative participation method and consult counselor",
+      "maxScore": 9,
+      "order": 207
+    },
+    {
+      "id": "E8",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "AI & Tech",
+      "domainKey": "cybersecurity_digital_citizenship",
+      "prompt": "You're offered a free EdTech product to trial in class — with no vetting.",
+      "bestResponse": "Decline until privacy and safety checks are complete",
+      "maxScore": 9,
+      "order": 208
+    },
+    {
+      "id": "E9",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Educational Foundations",
+      "domainKey": "child_development_psychology",
+      "prompt": "You're asked to teach faster and skip key concepts.",
+      "bestResponse": "Explain risks of skipping and propose compromise",
+      "maxScore": 9,
+      "order": 209
+    },
+    {
+      "id": "E10",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Pedagogical Mastery",
+      "domainKey": "instructional_strategies",
+      "prompt": "Your supervisor insists on traditional rote methods you disagree with.",
+      "bestResponse": "Offer evidence-based alternatives respectfully",
+      "maxScore": 9,
+      "order": 210
+    },
+    {
+      "id": "E11",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Professional Identity",
+      "domainKey": "ethics_professionalism",
+      "prompt": "You catch a student cheating. What do you do?",
+      "bestResponse": "Privately address it, apply school policy, and offer a learning opportunity",
+      "maxScore": 9,
+      "order": 211
+    },
+    {
+      "id": "E12",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Pedagogical Mastery",
+      "domainKey": "lesson_planning",
+      "prompt": "You're forced to teach a lesson outside your subject expertise. How do you respond?",
+      "bestResponse": "Consult peers, gather resources, prepare responsibly",
+      "maxScore": 9,
+      "order": 212
+    },
+    {
+      "id": "E13",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Inclusive Practice",
+      "domainKey": "cultural_competence_dei",
+      "prompt": "A parent complains about gender representation in your materials.",
+      "bestResponse": "Review materials, consult stakeholders, update content if needed",
+      "maxScore": 9,
+      "order": 213
+    },
+    {
+      "id": "E14",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "Your school bans a commonly used AI tool. You disagree. What now?",
+      "bestResponse": "Raise concerns professionally and suggest alternatives",
+      "maxScore": 9,
+      "order": 214
+    },
+    {
+      "id": "E15",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Global Citizenship",
+      "domainKey": "global_citizenship_sustainability",
+      "prompt": "A student challenges your lesson on climate change as 'biased'.",
+      "bestResponse": "Facilitate respectful dialogue, acknowledge perspectives",
+      "maxScore": 9,
+      "order": 215
+    },
+    {
+      "id": "E16",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Professional Identity",
+      "domainKey": "ethics_professionalism",
+      "prompt": "You're asked to lie to cover a scheduling error. What do you do?",
+      "bestResponse": "Refuse and explain ethical stance",
+      "maxScore": 9,
+      "order": 216
+    },
+    {
+      "id": "E17",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Inclusive Practice",
+      "domainKey": "social_emotional_learning",
+      "prompt": "A student refuses to participate in group work due to anxiety.",
+      "bestResponse": "Offer alternative participation method and consult counselor",
+      "maxScore": 9,
+      "order": 217
+    },
+    {
+      "id": "E18",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "AI & Tech",
+      "domainKey": "cybersecurity_digital_citizenship",
+      "prompt": "You're offered a free EdTech product to trial in class — with no vetting.",
+      "bestResponse": "Decline until privacy and safety checks are complete",
+      "maxScore": 9,
+      "order": 218
+    },
+    {
+      "id": "E19",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Educational Foundations",
+      "domainKey": "child_development_psychology",
+      "prompt": "You're asked to teach faster and skip key concepts.",
+      "bestResponse": "Explain risks of skipping and propose compromise",
+      "maxScore": 9,
+      "order": 219
+    },
+    {
+      "id": "E20",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Pedagogical Mastery",
+      "domainKey": "instructional_strategies",
+      "prompt": "Your supervisor insists on traditional rote methods you disagree wit)",
+      "bestResponse": "Offer evidence-based alternatives respectfully",
+      "maxScore": 9,
+      "order": 220
+    },
+    {
+      "id": "E21",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Professional Identity",
+      "domainKey": "ethics_professionalism",
+      "prompt": "You catch a student cheating. What do you d)",
+      "bestResponse": "Privately address it, apply school policy, and offer a learning opportunity",
+      "maxScore": 9,
+      "order": 221
+    },
+    {
+      "id": "E22",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Pedagogical Mastery",
+      "domainKey": "lesson_planning",
+      "prompt": "You're forced to teach a lesson outside your subject expertise. How do you respon)",
+      "bestResponse": "Consult peers, gather resources, prepare responsibly",
+      "maxScore": 9,
+      "order": 222
+    },
+    {
+      "id": "E23",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Inclusive Practice",
+      "domainKey": "cultural_competence_dei",
+      "prompt": "A parent complains about gender representation in your material)",
+      "bestResponse": "Review materials, consult stakeholders, update content if needed",
+      "maxScore": 9,
+      "order": 223
+    },
+    {
+      "id": "E24",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "Your school bans a commonly used AI tool. You disagree. What no)",
+      "bestResponse": "Raise concerns professionally and suggest alternatives",
+      "maxScore": 9,
+      "order": 224
+    },
+    {
+      "id": "E25",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Global Citizenship",
+      "domainKey": "global_citizenship_sustainability",
+      "prompt": "A student challenges your lesson on climate change as 'biase)",
+      "bestResponse": "Facilitate respectful dialogue, acknowledge perspectives",
+      "maxScore": 9,
+      "order": 225
+    },
+    {
+      "id": "E26",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Professional Identity",
+      "domainKey": "ethics_professionalism",
+      "prompt": "You're asked to lie to cover a scheduling error. What do you d)",
+      "bestResponse": "Refuse and explain ethical stance",
+      "maxScore": 9,
+      "order": 226
+    },
+    {
+      "id": "E27",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Inclusive Practice",
+      "domainKey": "social_emotional_learning",
+      "prompt": "A student refuses to participate in group work due to anxiet)",
+      "bestResponse": "Offer alternative participation method and consult counselor",
+      "maxScore": 9,
+      "order": 227
+    },
+    {
+      "id": "E28",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "AI & Tech",
+      "domainKey": "cybersecurity_digital_citizenship",
+      "prompt": "You're offered a free EdTech product to trial in class — with no vettin)",
+      "bestResponse": "Decline until privacy and safety checks are complete",
+      "maxScore": 9,
+      "order": 228
+    },
+    {
+      "id": "E29",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Educational Foundations",
+      "domainKey": "child_development_psychology",
+      "prompt": "You're asked to teach faster and skip key concept)",
+      "bestResponse": "Explain risks of skipping and propose compromise",
+      "maxScore": 9,
+      "order": 229
+    },
+    {
+      "id": "E30",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Pedagogical Mastery",
+      "domainKey": "instructional_strategies",
+      "prompt": "Your supervisor insists on traditional rote methods you disagree wit)",
+      "bestResponse": "Offer evidence-based alternatives respectfully",
+      "maxScore": 9,
+      "order": 230
+    },
+    {
+      "id": "E31",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Professional Identity",
+      "domainKey": "ethics_professionalism",
+      "prompt": "You catch a student cheating. What do you d)",
+      "bestResponse": "Privately address it, apply school policy, and offer a learning opportunity",
+      "maxScore": 9,
+      "order": 231
+    },
+    {
+      "id": "E32",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Pedagogical Mastery",
+      "domainKey": "lesson_planning",
+      "prompt": "You're forced to teach a lesson outside your subject expertise. How do you respon)",
+      "bestResponse": "Consult peers, gather resources, prepare responsibly",
+      "maxScore": 9,
+      "order": 232
+    },
+    {
+      "id": "E33",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Inclusive Practice",
+      "domainKey": "cultural_competence_dei",
+      "prompt": "A parent complains about gender representation in your material)",
+      "bestResponse": "Review materials, consult stakeholders, update content if needed",
+      "maxScore": 9,
+      "order": 233
+    },
+    {
+      "id": "E34",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "Your school bans a commonly used AI tool. You disagree. What no)",
+      "bestResponse": "Raise concerns professionally and suggest alternatives",
+      "maxScore": 9,
+      "order": 234
+    },
+    {
+      "id": "E35",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Global Citizenship",
+      "domainKey": "global_citizenship_sustainability",
+      "prompt": "A student challenges your lesson on climate change as 'biase)",
+      "bestResponse": "Facilitate respectful dialogue, acknowledge perspectives",
+      "maxScore": 9,
+      "order": 235
+    },
+    {
+      "id": "E36",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Professional Identity",
+      "domainKey": "ethics_professionalism",
+      "prompt": "You're asked to lie to cover a scheduling error. What do you d)",
+      "bestResponse": "Refuse and explain ethical stance",
+      "maxScore": 9,
+      "order": 236
+    },
+    {
+      "id": "E37",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Inclusive Practice",
+      "domainKey": "social_emotional_learning",
+      "prompt": "A student refuses to participate in group work due to anxiet)",
+      "bestResponse": "Offer alternative participation method and consult counselor",
+      "maxScore": 9,
+      "order": 237
+    },
+    {
+      "id": "E38",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "AI & Tech",
+      "domainKey": "cybersecurity_digital_citizenship",
+      "prompt": "You're offered a free EdTech product to trial in class — with no vettin)",
+      "bestResponse": "Decline until privacy and safety checks are complete",
+      "maxScore": 9,
+      "order": 238
+    },
+    {
+      "id": "E39",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Educational Foundations",
+      "domainKey": "child_development_psychology",
+      "prompt": "You're asked to teach faster and skip key concept)",
+      "bestResponse": "Explain risks of skipping and propose compromise",
+      "maxScore": 9,
+      "order": 239
+    },
+    {
+      "id": "E40",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Pedagogical Mastery",
+      "domainKey": "instructional_strategies",
+      "prompt": "Your supervisor insists on traditional rote methods you disagree wit)",
+      "bestResponse": "Offer evidence-based alternatives respectfully",
+      "maxScore": 9,
+      "order": 240
+    },
+    {
+      "id": "E41",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Professional Identity",
+      "domainKey": "ethics_professionalism",
+      "prompt": "You catch a student cheating. What do you d)",
+      "bestResponse": "Privately address it, apply school policy, and offer a learning opportunity",
+      "maxScore": 9,
+      "order": 241
+    },
+    {
+      "id": "E42",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Pedagogical Mastery",
+      "domainKey": "lesson_planning",
+      "prompt": "You're forced to teach a lesson outside your subject expertise. How do you respon)",
+      "bestResponse": "Consult peers, gather resources, prepare responsibly",
+      "maxScore": 9,
+      "order": 242
+    },
+    {
+      "id": "E43",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Inclusive Practice",
+      "domainKey": "cultural_competence_dei",
+      "prompt": "A parent complains about gender representation in your material)",
+      "bestResponse": "Review materials, consult stakeholders, update content if needed",
+      "maxScore": 9,
+      "order": 243
+    },
+    {
+      "id": "E44",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "AI & Tech",
+      "domainKey": "ai_literacy",
+      "prompt": "Your school bans a commonly used AI tool. You disagree. What no)",
+      "bestResponse": "Raise concerns professionally and suggest alternatives",
+      "maxScore": 9,
+      "order": 244
+    },
+    {
+      "id": "E45",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Global Citizenship",
+      "domainKey": "global_citizenship_sustainability",
+      "prompt": "A student challenges your lesson on climate change as 'biase)",
+      "bestResponse": "Facilitate respectful dialogue, acknowledge perspectives",
+      "maxScore": 9,
+      "order": 245
+    },
+    {
+      "id": "E46",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Professional Identity",
+      "domainKey": "ethics_professionalism",
+      "prompt": "You're asked to lie to cover a scheduling error. What do you d)",
+      "bestResponse": "Refuse and explain ethical stance",
+      "maxScore": 9,
+      "order": 246
+    },
+    {
+      "id": "E47",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Inclusive Practice",
+      "domainKey": "social_emotional_learning",
+      "prompt": "A student refuses to participate in group work due to anxiet)",
+      "bestResponse": "Offer alternative participation method and consult counselor",
+      "maxScore": 9,
+      "order": 247
+    },
+    {
+      "id": "E48",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "AI & Tech",
+      "domainKey": "cybersecurity_digital_citizenship",
+      "prompt": "You're offered a free EdTech product to trial in class — with no vettin)",
+      "bestResponse": "Decline until privacy and safety checks are complete",
+      "maxScore": 9,
+      "order": 248
+    },
+    {
+      "id": "E49",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Educational Foundations",
+      "domainKey": "child_development_psychology",
+      "prompt": "You're asked to teach faster and skip key concept)",
+      "bestResponse": "Explain risks of skipping and propose compromise",
+      "maxScore": 9,
+      "order": 249
+    },
+    {
+      "id": "E50",
+      "category": "E_TEACHING_DILEMMA",
+      "type": "SHORT_ANSWER",
+      "track": "Pedagogical Mastery",
+      "domainKey": "instructional_strategies",
+      "prompt": "Your supervisor insists on traditional rote methods you disagree wit)",
+      "bestResponse": "Offer evidence-based alternatives respectfully",
+      "maxScore": 9,
+      "order": 250
+    }
+  ]
+}

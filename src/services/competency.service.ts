@@ -12,6 +12,7 @@ import {
   evaluateAttempt,
 } from './competency.evaluation.service';
 import { notificationService } from './notification.service';
+import { appEventEmitter, EventType } from '../events';
 import {
   CompetencyAssessment,
   CompetencyQuestion,
@@ -566,6 +567,31 @@ export class CompetencyService {
     } catch (err) {
       logger.error(
         'Failed to send competency evaluated notification',
+        err instanceof Error ? err : undefined,
+        {
+          teacherId: attempt.teacherId,
+          attemptId: attempt.id,
+          resultId: result.id,
+        }
+      );
+    }
+
+    // Emit event for competency assessment completion (Event-Driven Architecture)
+    try {
+      appEventEmitter.emit(EventType.COMPETENCY_ASSESSMENT_EVALUATED, {
+        teacherId: attempt.teacherId,
+        attemptId: attempt.id,
+        resultId: result.id,
+        assessmentId: attempt.assessmentId,
+        overallScore: result.overallScore,
+        proficiencyLevel: result.proficiencyLevel,
+        gapDomains: result.gapDomains,
+        strengthDomains: result.strengthDomains,
+        timestamp: new Date(),
+      });
+    } catch (err) {
+      logger.error(
+        'Failed to emit competency assessment evaluated event',
         err instanceof Error ? err : undefined,
         {
           teacherId: attempt.teacherId,

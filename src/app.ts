@@ -11,10 +11,12 @@ import {
 import { requestIdMiddleware, logger } from './utils/logger';
 import { tierBasedRateLimiter } from './middlewares/rate.limiter';
 import { optionalAuthMiddleware } from './middlewares/auth';
+import { registerEventHandlers } from './events';
 
 const app: Application = express();
 
 setupErrorHandlers();
+registerEventHandlers();
 app.use(helmet());
 app.use(
   cors({

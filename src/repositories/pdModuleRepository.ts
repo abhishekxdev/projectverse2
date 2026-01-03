@@ -27,6 +27,7 @@ export interface PdModuleRepository {
   getModuleById(moduleId: string): Promise<PdModule | null>;
   getActiveModules(): Promise<PdModule[]>;
   getModulesByDomain(domainKey: string): Promise<PdModule[]>;
+  getModulesByTrackId(trackId: string): Promise<PdModule[]>;
 
   // Question methods
   getQuestionsByModule(moduleId: string): Promise<PdQuestion[]>;
@@ -94,6 +95,19 @@ export const createPdModuleRepository = (): PdModuleRepository => {
       const snapshot = await db
         .collection(MODULES_COLLECTION)
         .where('domainKey', '==', domainKey)
+        .where('active', '==', true)
+        .orderBy('order', 'asc')
+        .get();
+
+      return snapshot.docs.map(
+        (doc) => ({ id: doc.id, ...doc.data() } as PdModule)
+      );
+    },
+
+    async getModulesByTrackId(trackId: string): Promise<PdModule[]> {
+      const snapshot = await db
+        .collection(MODULES_COLLECTION)
+        .where('trackId', '==', trackId)
         .where('active', '==', true)
         .orderBy('order', 'asc')
         .get();

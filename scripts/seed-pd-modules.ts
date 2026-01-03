@@ -8,7 +8,7 @@ dotenv.config();
 
 import { firestore } from 'firebase-admin';
 import { db } from '../src/config/firebase';
-import { PD_TRACKS } from '../src/config/constants';
+import { PD_TRACKS, TRACK_MODULE_TYPES } from '../src/config/constants';
 
 const MODULES_COLLECTION = 'pdModules';
 
@@ -34,32 +34,40 @@ const seedPdModules = async (): Promise<void> => {
 
   const now = firestore.Timestamp.now();
   let moduleOrder = 1;
+  let totalModules = 0;
 
   for (const [trackKey, trackData] of Object.entries(PD_TRACKS)) {
-    const moduleId = `pd-module-${trackData.id}`;
+    const moduleTypes = TRACK_MODULE_TYPES[trackData.id] || [];
 
-    await db.collection(MODULES_COLLECTION).doc(moduleId).set({
-      id: moduleId,
-      trackId: trackData.id,
-      title: trackData.name,
-      description: `Professional development track for ${trackData.name}`,
-      domainKey: trackData.competencies[0],
-      badge: trackData.badge,
-      microBadges: trackData.microBadges,
-      competencies: trackData.competencies,
-      passingScore: 80,
-      maxAttempts: 3,
-      cooldownHours: 24,
-      order: moduleOrder++,
-      active: true,
-      createdAt: now,
-      updatedAt: now,
-    }, { merge: true });
+    console.log(`\n📚 Track: ${trackData.name} (${moduleTypes.length} modules)`);
 
-    console.log(`  ✓ Created PD Module: ${trackData.name} (order: ${moduleOrder - 1})`);
+    for (const moduleType of moduleTypes) {
+      const moduleId = `${trackData.id}_${moduleType.toLowerCase().replace(/\s+/g, '_')}`;
+
+      await db.collection(MODULES_COLLECTION).doc(moduleId).set({
+        id: moduleId,
+        trackId: trackData.id,
+        title: `${trackData.name}: ${moduleType}`,
+        description: `Professional development module focusing on ${moduleType} within ${trackData.name}`,
+        domainKey: trackData.competencies[0],
+        badge: trackData.badge,
+        microBadges: trackData.microBadges,
+        competencies: trackData.competencies,
+        passingScore: 80,
+        maxAttempts: 3,
+        cooldownHours: 24,
+        order: moduleOrder++,
+        active: true,
+        createdAt: now,
+        updatedAt: now,
+      }, { merge: true });
+
+      console.log(`  ✓ ${moduleType} (order: ${moduleOrder - 1})`);
+      totalModules++;
+    }
   }
 
-  console.log(`\n✅ Seeded ${Object.keys(PD_TRACKS).length} PD modules successfully!`);
+  console.log(`\n✅ Seeded ${totalModules} PD modules across ${Object.keys(PD_TRACKS).length} tracks successfully!`);
 };
 
 const main = async (): Promise<void> => {

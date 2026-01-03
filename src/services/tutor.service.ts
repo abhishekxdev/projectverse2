@@ -3,6 +3,7 @@ import {
   TutorRepository,
 } from '../repositories/tutorRepository';
 import { createCompetencyRepository } from '../repositories/competencyRepository';
+import { createPdModuleRepository } from '../repositories/pdModuleRepository';
 import { notificationService } from './notification.service';
 import {
   AiTutorSession,
@@ -14,7 +15,7 @@ import {
   LearningPathResponse,
 } from '../types/tutor.types';
 import { TeacherCompetencyResult } from '../types/competency.types';
-import { DOMAIN_TO_TRACK_MAP, TRACK_MODULE_TYPES, PD_TRACKS } from '../config/constants';
+import { DOMAIN_TO_TRACK_MAP, PD_TRACKS } from '../config/constants';
 import { NotFoundError, ForbiddenError, ConflictError } from '../utils/error';
 import { logger } from '../utils/logger';
 import {
@@ -27,10 +28,12 @@ import OpenAI from 'openai';
 export class TutorService {
   private repo: TutorRepository;
   private competencyRepo: ReturnType<typeof createCompetencyRepository>;
+  private pdModuleRepo: ReturnType<typeof createPdModuleRepository>;
 
   constructor(repo?: TutorRepository) {
     this.repo = repo || createTutorRepository();
     this.competencyRepo = createCompetencyRepository();
+    this.pdModuleRepo = createPdModuleRepository();
   }
 
   // ============ Session Management ============
@@ -373,17 +376,17 @@ export class TutorService {
 
     tracksWithAvgScores.sort((a, b) => a.avgScore - b.avgScore);
 
-    // Generate modules from tracks (prioritize lowest scoring tracks)
+    // Query actual modules from database for each track (prioritize lowest scoring tracks)
     const modules: LearningPathModule[] = [];
     let order = 1;
 
     for (const { trackId, domains } of tracksWithAvgScores) {
-      const moduleTypes = TRACK_MODULE_TYPES[trackId] || [];
+      const trackModules = await this.pdModuleRepo.getModulesByTrackId(trackId);
 
-      for (const moduleType of moduleTypes) {
+      for (const module of trackModules) {
         modules.push({
-          moduleId: `${trackId}_${moduleType.toLowerCase().replace(/\s+/g, '_')}`,
-          title: this.getModuleTitle(trackId, moduleType),
+          moduleId: module.id,
+          title: module.title,
           domainKey: domains[0],
           status: order === 1 ? 'unlocked' : 'locked',
           order: order++,
@@ -496,12 +499,12 @@ export class TutorService {
     let order = 1;
 
     for (const { trackId, domains } of tracksWithAvgScores) {
-      const moduleTypes = TRACK_MODULE_TYPES[trackId] || [];
+      const trackModules = await this.pdModuleRepo.getModulesByTrackId(trackId);
 
-      for (const moduleType of moduleTypes) {
+      for (const module of trackModules) {
         modules.push({
-          moduleId: `${trackId}_${moduleType.toLowerCase().replace(/\s+/g, '_')}`,
-          title: this.getModuleTitle(trackId, moduleType),
+          moduleId: module.id,
+          title: module.title,
           domainKey: domains[0],
           status: order === 1 ? 'unlocked' : 'locked',
           order: order++,
@@ -575,18 +578,6 @@ export class TutorService {
 
   // ============ Private Helpers ============
 
-  private getModuleTitle(trackId: string, moduleType: string): string {
-    const trackNames: Record<string, string> = {
-      pedagogical_mastery: 'Pedagogical Mastery',
-      tech_ai_fluency: 'AI & Tech',
-      inclusive_practice: 'Inclusive Practice',
-      professional_identity: 'Professional Identity',
-      global_citizenship: 'Global Citizenship',
-      educational_foundations: 'Educational Foundations',
-    };
-    const trackName = trackNames[trackId] || trackId;
-    return `${trackName}: ${moduleType}`;
-  }
 
   private formatSessionResponse(session: AiTutorSession): SessionResponse {
     return {

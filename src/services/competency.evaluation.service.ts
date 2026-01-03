@@ -8,11 +8,11 @@ import {
 } from '../types/competency.types';
 import {
   DOMAIN_TO_TRACK_MAP,
-  TRACK_MODULE_TYPES,
   STRENGTH_THRESHOLD_PERCENT,
   PROFICIENCY_LEVELS,
   COMPETENCY_QUESTION_TYPES,
 } from '../config/constants';
+import { createPdModuleRepository } from '../repositories/pdModuleRepository';
 import {
   EVALUATOR_SYSTEM_PROMPT,
   getShortAnswerEvaluationPrompt,
@@ -429,11 +429,12 @@ const categorizeDomainsBy90Rule = (
 };
 
 /**
- * Get recommended Micro PDs for gap domains
- * Now returns track-level module types instead of domain-specific micro-PDs
+ * Get recommended PD module IDs for gap domains
+ * Returns actual module IDs from the database based on track gaps
  */
-const getRecommendedMicroPDs = (gapDomains: string[]): string[] => {
-  const trackModuleTypes = new Set<string>();
+const getRecommendedMicroPDs = async (gapDomains: string[]): Promise<string[]> => {
+  const pdModuleRepo = createPdModuleRepository();
+  const moduleIds = new Set<string>();
 
   const trackGaps = new Set<string>();
   for (const domain of gapDomains) {
@@ -444,11 +445,11 @@ const getRecommendedMicroPDs = (gapDomains: string[]): string[] => {
   }
 
   for (const trackId of trackGaps) {
-    const moduleTypes = TRACK_MODULE_TYPES[trackId] || [];
-    moduleTypes.forEach((moduleType) => trackModuleTypes.add(moduleType));
+    const modules = await pdModuleRepo.getModulesByTrackId(trackId);
+    modules.forEach((module) => moduleIds.add(module.id));
   }
 
-  return Array.from(trackModuleTypes);
+  return Array.from(moduleIds);
 };
 
 /**
@@ -557,8 +558,8 @@ export const evaluateAttempt = async (
   const { strengthDomains, gapDomains } =
     categorizeDomainsBy90Rule(domainScores);
 
-  // Get recommended Micro PDs
-  const recommendedMicroPDs = getRecommendedMicroPDs(gapDomains);
+  // Get recommended Micro PDs (actual module IDs from database)
+  const recommendedMicroPDs = await getRecommendedMicroPDs(gapDomains);
 
   // Generate overall feedback
   const rawFeedback = await generateOverallFeedback(

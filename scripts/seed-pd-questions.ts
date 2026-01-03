@@ -8,9 +8,10 @@ dotenv.config();
 
 import { firestore } from 'firebase-admin';
 import { db } from '../src/config/firebase';
-import { PD_TRACKS } from '../src/config/constants';
+import { PD_TRACKS, TRACK_MODULE_TYPES } from '../src/config/constants';
 
 const QUESTIONS_COLLECTION = 'pdQuestions';
+const MODULES_COLLECTION = 'pdModules';
 const isProductionSeed = process.env.ALLOW_PRODUCTION_SEED === 'true';
 
 const assertEnvironment = (): void => {
@@ -26,8 +27,8 @@ const assertEnvironment = (): void => {
   }
 };
 
-// Default questions for each track
-const DEFAULT_QUESTIONS: Record<string, Array<{
+// Template questions for each track (will be customized per module)
+const TRACK_QUESTION_TEMPLATES: Record<string, Array<{
   type: 'MCQ' | 'SHORT_ANSWER';
   prompt: string;
   options?: string[];
@@ -274,7 +275,7 @@ const DEFAULT_QUESTIONS: Record<string, Array<{
       maxScore: 5,
     },
   ],
-  foundations_policy: [
+  educational_foundations: [
     {
       type: 'MCQ',
       prompt: 'Understanding education policy is important for teachers because:',
@@ -331,43 +332,60 @@ const seedPdQuestions = async (): Promise<void> => {
 
   const now = firestore.Timestamp.now();
   let totalQuestions = 0;
+  let totalModules = 0;
 
   for (const [trackKey, trackData] of Object.entries(PD_TRACKS)) {
-    const moduleId = `pd-module-${trackData.id}`;
-    const questions = DEFAULT_QUESTIONS[trackData.id];
+    const questionTemplates = TRACK_QUESTION_TEMPLATES[trackData.id];
 
-    if (!questions) {
-      console.log(`  ⚠ No questions defined for ${trackData.name}`);
+    if (!questionTemplates) {
+      console.log(`  ⚠ No question templates defined for ${trackData.name}`);
       continue;
     }
 
-    console.log(`\nSeeding questions for: ${trackData.name}`);
+    const moduleTypes = TRACK_MODULE_TYPES[trackData.id] || [];
+    console.log(`\n📚 Track: ${trackData.name} (${moduleTypes.length} modules)`);
 
-    for (let i = 0; i < questions.length; i++) {
-      const q = questions[i];
-      const questionId = `${moduleId}-q${i + 1}`;
+    for (const moduleType of moduleTypes) {
+      const moduleId = `${trackData.id}_${moduleType.toLowerCase().replace(/\s+/g, '_')}`;
 
-      await db.collection(QUESTIONS_COLLECTION).doc(questionId).set({
-        id: questionId,
-        moduleId,
-        attemptId: null, // Cached/template question
-        type: q.type,
-        prompt: q.prompt,
-        options: q.options || null,
-        correctOption: q.correctOption || null,
-        maxScore: q.maxScore,
-        order: i + 1,
-        generatedByAi: false,
-        createdAt: now,
-      }, { merge: true });
+      // Verify module exists
+      const moduleDoc = await db.collection(MODULES_COLLECTION).doc(moduleId).get();
+      if (!moduleDoc.exists) {
+        console.log(`  ⚠ Module ${moduleId} not found, skipping questions`);
+        continue;
+      }
 
-      totalQuestions++;
+      console.log(`\n  Module: ${moduleType}`);
+      let moduleQuestionCount = 0;
+
+      for (let i = 0; i < questionTemplates.length; i++) {
+        const q = questionTemplates[i];
+        const questionId = `${moduleId}_q${i + 1}`;
+
+        await db.collection(QUESTIONS_COLLECTION).doc(questionId).set({
+          id: questionId,
+          moduleId,
+          attemptId: null,
+          type: q.type,
+          prompt: q.prompt,
+          options: q.options || null,
+          correctOption: q.correctOption || null,
+          maxScore: q.maxScore,
+          order: i + 1,
+          generatedByAi: false,
+          createdAt: now,
+        }, { merge: true });
+
+        totalQuestions++;
+        moduleQuestionCount++;
+      }
+
+      console.log(`    ✓ Added ${moduleQuestionCount} questions`);
+      totalModules++;
     }
-
-    console.log(`  ✓ Added ${questions.length} questions for ${trackData.name}`);
   }
 
-  console.log(`\n✅ Seeded ${totalQuestions} PD questions successfully!`);
+  console.log(`\n✅ Seeded ${totalQuestions} questions across ${totalModules} modules successfully!`);
 };
 
 const main = async (): Promise<void> => {

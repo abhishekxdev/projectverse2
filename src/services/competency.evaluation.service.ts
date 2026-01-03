@@ -101,10 +101,9 @@ const callAIWithRetry = async (
 ): Promise<AIEvaluationResponse> => {
   for (let attempt = 0; attempt <= retries; attempt++) {
     try {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const response = await openai.responses.create({
+      const response = await openai.chat.completions.create({
         model: AI_CONFIG.model,
-        input: [
+        messages: [
           {
             role: 'system',
             content: systemPrompt,
@@ -115,9 +114,10 @@ const callAIWithRetry = async (
           },
         ],
         temperature: 0.3,
-        max_output_tokens: AI_CONFIG.maxEvaluationTokens,
+        max_tokens: AI_CONFIG.maxEvaluationTokens,
       });
-      const text = response.output_text ?? (response as any).output?.[0]?.content?.[0]?.text ?? '';
+
+      const text = response.choices[0]?.message?.content || '';
 
       return parseAIResponse(text, maxScore);
     } catch (err) {
@@ -470,9 +470,9 @@ const generateOverallFeedback = async (
       gapDomains
     );
 
-    const response = await openai.responses.create({
+    const response = await openai.chat.completions.create({
       model: AI_CONFIG.model,
-      input: [
+      messages: [
         {
           role: 'system',
           content: EVALUATOR_SYSTEM_PROMPT,
@@ -483,10 +483,10 @@ const generateOverallFeedback = async (
         },
       ],
       temperature: 0.5,
-      max_output_tokens: 300,
+      max_tokens: 300,
     });
 
-    const text = response.output_text ?? (response as any).output?.[0]?.content?.[0]?.text ?? '';
+    const text = response.choices[0]?.message?.content || '';
 
     const jsonMatch = text.match(/\{[\s\S]*\}/);
     if (jsonMatch) {

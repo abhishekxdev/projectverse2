@@ -85,7 +85,8 @@ export const submitAttempt = asyncHandler(
       evaluationResult = await competencyService.triggerEvaluation(attempt.id);
     } catch (evalError) {
       // Log error but don't fail the submission - evaluation can be retried
-      console.error('Auto-evaluation failed, will retry later:', evalError);
+      const error = evalError instanceof Error ? evalError : new Error(String(evalError));
+      console.error('Auto-evaluation failed, will retry later:', error.message, error.stack);
     }
 
     if (evaluationResult) {

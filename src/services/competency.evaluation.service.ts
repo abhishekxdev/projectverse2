@@ -7,10 +7,10 @@ import {
   ProficiencyLevel,
 } from '../types/competency.types';
 import {
-  DOMAIN_MICRO_PD_MAP,
+  DOMAIN_TO_TRACK_MAP,
+  TRACK_MODULE_TYPES,
   STRENGTH_THRESHOLD_PERCENT,
   PROFICIENCY_LEVELS,
-  // PROFICIENCY_THRESHOLDS,
   COMPETENCY_QUESTION_TYPES,
 } from '../config/constants';
 import {
@@ -430,16 +430,25 @@ const categorizeDomainsBy90Rule = (
 
 /**
  * Get recommended Micro PDs for gap domains
+ * Now returns track-level module types instead of domain-specific micro-PDs
  */
 const getRecommendedMicroPDs = (gapDomains: string[]): string[] => {
-  const recommendations = new Set<string>();
+  const trackModuleTypes = new Set<string>();
 
+  const trackGaps = new Set<string>();
   for (const domain of gapDomains) {
-    const microPDs = DOMAIN_MICRO_PD_MAP[domain] || [];
-    microPDs.forEach((pd) => recommendations.add(pd));
+    const trackId = DOMAIN_TO_TRACK_MAP[domain];
+    if (trackId) {
+      trackGaps.add(trackId);
+    }
   }
 
-  return Array.from(recommendations);
+  for (const trackId of trackGaps) {
+    const moduleTypes = TRACK_MODULE_TYPES[trackId] || [];
+    moduleTypes.forEach((moduleType) => trackModuleTypes.add(moduleType));
+  }
+
+  return Array.from(trackModuleTypes);
 };
 
 /**

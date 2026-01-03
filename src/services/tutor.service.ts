@@ -14,7 +14,7 @@ import {
   LearningPathResponse,
 } from '../types/tutor.types';
 import { TeacherCompetencyResult } from '../types/competency.types';
-import { DOMAIN_MICRO_PD_MAP } from '../config/constants';
+import { DOMAIN_TO_TRACK_MAP, TRACK_MODULE_TYPES, PD_TRACKS } from '../config/constants';
 import { NotFoundError, ForbiddenError, ConflictError } from '../utils/error';
 import { logger } from '../utils/logger';
 import {
@@ -338,17 +338,53 @@ export class TutorService {
       return this.formatLearningPathResponse(existingPath);
     }
 
-    // Generate modules from gap domains
+    // Group gap domains by their parent track
+    const trackGaps = new Map<string, { domains: string[], scores: number[] }>();
+
+    for (const domain of result.gapDomains) {
+      const trackId = DOMAIN_TO_TRACK_MAP[domain];
+      if (trackId) {
+        if (!trackGaps.has(trackId)) {
+          trackGaps.set(trackId, { domains: [], scores: [] });
+        }
+        const trackData = trackGaps.get(trackId)!;
+        trackData.domains.push(domain);
+
+        const domainScore = result.domainScores.find(d => d.domainKey === domain);
+        if (domainScore) {
+          trackData.scores.push(domainScore.scorePercent);
+        }
+      }
+    }
+
+    if (trackGaps.size === 0) {
+      throw new ConflictError(
+        'Congratulations! You have no gap areas. No learning path needed.'
+      );
+    }
+
+    // Calculate average score for each track and sort by lowest first
+    const tracksWithAvgScores = Array.from(trackGaps.entries()).map(([trackId, data]) => {
+      const avgScore = data.scores.length > 0
+        ? data.scores.reduce((sum, score) => sum + score, 0) / data.scores.length
+        : 0;
+      return { trackId, domains: data.domains, avgScore };
+    });
+
+    tracksWithAvgScores.sort((a, b) => a.avgScore - b.avgScore);
+
+    // Generate modules from tracks (prioritize lowest scoring tracks)
     const modules: LearningPathModule[] = [];
     let order = 1;
 
-    for (const domain of result.gapDomains) {
-      const microPDs = DOMAIN_MICRO_PD_MAP[domain] || [];
-      for (const moduleId of microPDs) {
+    for (const { trackId, domains } of tracksWithAvgScores) {
+      const moduleTypes = TRACK_MODULE_TYPES[trackId] || [];
+
+      for (const moduleType of moduleTypes) {
         modules.push({
-          moduleId,
-          title: this.getModuleTitle(domain, moduleId),
-          domainKey: domain,
+          moduleId: `${trackId}_${moduleType.toLowerCase().replace(/\s+/g, '_')}`,
+          title: this.getModuleTitle(trackId, moduleType),
+          domainKey: domains[0],
           status: order === 1 ? 'unlocked' : 'locked',
           order: order++,
         });
@@ -356,7 +392,6 @@ export class TutorService {
     }
 
     if (modules.length === 0) {
-      // No gaps - all domains are strengths!
       throw new ConflictError(
         'Congratulations! You have no gap areas. No learning path needed.'
       );
@@ -428,16 +463,46 @@ export class TutorService {
       return null;
     }
 
+    // Group gap domains by their parent track
+    const trackGaps = new Map<string, { domains: string[], scores: number[] }>();
+
+    for (const domain of result.gapDomains) {
+      const trackId = DOMAIN_TO_TRACK_MAP[domain];
+      if (trackId) {
+        if (!trackGaps.has(trackId)) {
+          trackGaps.set(trackId, { domains: [], scores: [] });
+        }
+        const trackData = trackGaps.get(trackId)!;
+        trackData.domains.push(domain);
+
+        const domainScore = result.domainScores.find(d => d.domainKey === domain);
+        if (domainScore) {
+          trackData.scores.push(domainScore.scorePercent);
+        }
+      }
+    }
+
+    // Calculate average score for each track and sort by lowest first
+    const tracksWithAvgScores = Array.from(trackGaps.entries()).map(([trackId, data]) => {
+      const avgScore = data.scores.length > 0
+        ? data.scores.reduce((sum, score) => sum + score, 0) / data.scores.length
+        : 0;
+      return { trackId, domains: data.domains, avgScore };
+    });
+
+    tracksWithAvgScores.sort((a, b) => a.avgScore - b.avgScore);
+
     const modules: LearningPathModule[] = [];
     let order = 1;
 
-    for (const domain of result.gapDomains) {
-      const microPDs = DOMAIN_MICRO_PD_MAP[domain] || [];
-      for (const moduleId of microPDs) {
+    for (const { trackId, domains } of tracksWithAvgScores) {
+      const moduleTypes = TRACK_MODULE_TYPES[trackId] || [];
+
+      for (const moduleType of moduleTypes) {
         modules.push({
-          moduleId,
-          title: this.getModuleTitle(domain, moduleId),
-          domainKey: domain,
+          moduleId: `${trackId}_${moduleType.toLowerCase().replace(/\s+/g, '_')}`,
+          title: this.getModuleTitle(trackId, moduleType),
+          domainKey: domains[0],
           status: order === 1 ? 'unlocked' : 'locked',
           order: order++,
         });
@@ -510,20 +575,17 @@ export class TutorService {
 
   // ============ Private Helpers ============
 
-  private getModuleTitle(domain: string, moduleId: string): string {
-    const domainTitles: Record<string, string> = {
-      planning: 'Lesson Planning',
-      pedagogy: 'Pedagogy Techniques',
-      assessment: 'Assessment Strategies',
-      classroom_management: 'Classroom Management',
-      technology: 'Technology Integration',
-      communication: 'Communication Skills',
-      differentiation: 'Differentiated Instruction',
-      professional_development: 'Professional Growth',
+  private getModuleTitle(trackId: string, moduleType: string): string {
+    const trackNames: Record<string, string> = {
+      pedagogical_mastery: 'Pedagogical Mastery',
+      tech_ai_fluency: 'AI & Tech',
+      inclusive_practice: 'Inclusive Practice',
+      professional_identity: 'Professional Identity',
+      global_citizenship: 'Global Citizenship',
+      educational_foundations: 'Educational Foundations',
     };
-    const baseName = domainTitles[domain] || domain;
-    const number = moduleId.split('-').pop() || '1';
-    return `${baseName} - Module ${number}`;
+    const trackName = trackNames[trackId] || trackId;
+    return `${trackName}: ${moduleType}`;
   }
 
   private formatSessionResponse(session: AiTutorSession): SessionResponse {

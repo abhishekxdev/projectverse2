@@ -215,7 +215,7 @@ export const COMPETENCY_DOMAINS = {
 export const PD_TRACKS = {
   PEDAGOGICAL_MASTERY: {
     id: 'pedagogical_mastery',
-    name: 'Mastering the Art of Teaching',
+    name: 'Pedagogical Mastery',
     badge: 'Pedagogical Architect',
     microBadges: ['Planning Pro', 'Engagement Expert', 'Assessment Strategist'],
     competencies: [
@@ -228,7 +228,7 @@ export const PD_TRACKS = {
   },
   TECH_AI_FLUENCY: {
     id: 'tech_ai_fluency',
-    name: 'Teaching in the AI & Tech Era',
+    name: 'AI & Tech',
     badge: 'AI-Enhanced Educator',
     microBadges: ['EdTech Integrator', 'AI Thinker', 'Digital Safety Advocate'],
     competencies: [
@@ -240,7 +240,7 @@ export const PD_TRACKS = {
   },
   INCLUSIVE_PRACTICE: {
     id: 'inclusive_practice',
-    name: 'Inclusive & Student-Centered Teaching',
+    name: 'Inclusive Practice',
     badge: 'Inclusive Classroom Champion',
     microBadges: ['UDL Ally', 'SEL Mentor', 'Equity Builder'],
     competencies: [
@@ -252,7 +252,7 @@ export const PD_TRACKS = {
   },
   PROFESSIONAL_IDENTITY: {
     id: 'professional_identity',
-    name: 'The Professional Educator',
+    name: 'Professional Identity',
     badge: 'Professional Teacher Identity',
     microBadges: ['Reflective Practitioner', 'Communicator', 'Ethical Educator'],
     competencies: [
@@ -266,7 +266,7 @@ export const PD_TRACKS = {
   },
   GLOBAL_CITIZENSHIP: {
     id: 'global_citizenship',
-    name: '21st Century & Global Educator',
+    name: 'Global Citizenship',
     badge: 'Global & Future-Ready Educator',
     microBadges: ['Innovation Facilitator', 'Creative Thinker', 'Digital Literate'],
     competencies: [
@@ -276,9 +276,9 @@ export const PD_TRACKS = {
       'media_information_literacy',
     ],
   },
-  FOUNDATIONS_POLICY: {
-    id: 'foundations_policy',
-    name: 'Educational Foundations & Policy Fluency',
+  EDUCATIONAL_FOUNDATIONS: {
+    id: 'educational_foundations',
+    name: 'Educational Foundations',
     badge: 'Certified Education Theorist',
     microBadges: ['Psychology Aligned', 'Policy-Aware Teacher'],
     competencies: [
@@ -368,12 +368,56 @@ export const TRACK_ROUTING_TABLE: Record<string, Record<string, string[]>> = {
     Proficient: ['Student-Led Campaigns'],
     Advanced: ['Design Global Toolkit', 'Speaker Role'],
   },
-  foundations_policy: {
+  educational_foundations: {
     Beginner: ['Child Psychology 101'],
     Developing: ['Policy Deep Dive (Local)'],
     Proficient: ['Instructional Coaching Labs'],
     Advanced: ['Policy Ambassador'],
   },
+} as const;
+
+// Track-level module type mapping (replaces domain-specific micro-PDs)
+export const TRACK_MODULE_TYPES: Record<string, string[]> = {
+  pedagogical_mastery: ['Lesson Planning', 'Engagement Strategies', 'Assessment Design'],
+  tech_ai_fluency: ['AI Literacy', 'EdTech Tools', 'Digital Safety'],
+  inclusive_practice: ['UDL Design', 'SEL Activities', 'Differentiation'],
+  professional_identity: ['Reflection Journals', 'Parent Communication', 'Ethics'],
+  global_citizenship: ['PBL', 'Creativity Frameworks', 'Media Literacy'],
+  educational_foundations: ['Learning Theories', 'Child Psychology', 'Policy Awareness'],
+} as const;
+
+// Domain to Track mapping (extracted from PD_TRACKS competencies)
+export const DOMAIN_TO_TRACK_MAP: Record<string, string> = {
+  lesson_planning: 'pedagogical_mastery',
+  instructional_strategies: 'pedagogical_mastery',
+  classroom_management: 'pedagogical_mastery',
+  assessment_feedback: 'pedagogical_mastery',
+  facilitation_presentation: 'pedagogical_mastery',
+
+  edtech_fluency: 'tech_ai_fluency',
+  ai_literacy: 'tech_ai_fluency',
+  blended_online_instruction: 'tech_ai_fluency',
+  cybersecurity_digital_citizenship: 'tech_ai_fluency',
+
+  differentiated_instruction: 'inclusive_practice',
+  inclusive_education: 'inclusive_practice',
+  cultural_competence_dei: 'inclusive_practice',
+  social_emotional_learning: 'inclusive_practice',
+
+  reflective_practice: 'professional_identity',
+  lifelong_learning: 'professional_identity',
+  career_portfolio: 'professional_identity',
+  parent_stakeholder_communication: 'professional_identity',
+  professional_collaboration: 'professional_identity',
+  ethics_professionalism: 'professional_identity',
+
+  innovation_change_management: 'global_citizenship',
+  critical_thinking_creativity: 'global_citizenship',
+  global_citizenship_sustainability: 'global_citizenship',
+  media_information_literacy: 'global_citizenship',
+
+  child_development_psychology: 'educational_foundations',
+  education_policy_governance: 'educational_foundations',
 } as const;
 
 // Strength threshold for 90% rule

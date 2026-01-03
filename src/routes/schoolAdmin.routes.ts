@@ -7,6 +7,7 @@ import {
   teacherInviteSchema,
   bulkInviteSchema,
   assignmentSchema,
+  suspendTeacherSchema,
 } from '../schemas/admin.schema';
 import {
   listTeachers,
@@ -18,6 +19,8 @@ import {
   deleteAssignment,
   viewProgress,
   viewTeacherProgress,
+  suspendTeacher,
+  unsuspendTeacher,
 } from '../controllers/schoolAdmin.controller';
 import { z } from 'zod';
 
@@ -126,6 +129,31 @@ router.get(
   schoolAssociationMiddleware(),
   validateParams(z.object({ teacherId: z.string() })),
   viewTeacherProgress
+);
+
+/**
+ * POST /api/admin/school/teachers/:id/suspend - Suspend a teacher
+ */
+router.post(
+  '/teachers/:id/suspend',
+  authMiddleware,
+  requireAnyAdmin(),
+  schoolAssociationMiddleware(),
+  validateParams(z.object({ id: z.string() })),
+  validate(suspendTeacherSchema),
+  suspendTeacher
+);
+
+/**
+ * POST /api/admin/school/teachers/:id/unsuspend - Unsuspend a teacher
+ */
+router.post(
+  '/teachers/:id/unsuspend',
+  authMiddleware,
+  requireAnyAdmin(),
+  schoolAssociationMiddleware(),
+  validateParams(z.object({ id: z.string() })),
+  unsuspendTeacher
 );
 
 export default router;

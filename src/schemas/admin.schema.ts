@@ -78,6 +78,18 @@ export const assignmentSchema = z
   .strict();
 
 /**
+ * Schema for suspending a teacher
+ */
+export const suspendTeacherSchema = z
+  .object({
+    reason: z
+      .string()
+      .min(10, 'Suspension reason must be at least 10 characters')
+      .max(500, 'Suspension reason must not exceed 500 characters'),
+  })
+  .strict();
+
+/**
  * Inferred TypeScript types from schemas
  */
 export type SchoolRegistrationInput = z.infer<typeof schoolRegistrationSchema>;
@@ -85,3 +97,4 @@ export type SchoolUpdateInput = z.infer<typeof schoolUpdateSchema>;
 export type TeacherInviteInput = z.infer<typeof teacherInviteSchema>;
 export type BulkInviteInput = z.infer<typeof bulkInviteSchema>;
 export type AssignmentInput = z.infer<typeof assignmentSchema>;
+export type SuspendTeacherInput = z.infer<typeof suspendTeacherSchema>;

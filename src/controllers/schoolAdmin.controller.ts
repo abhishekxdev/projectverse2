@@ -15,10 +15,14 @@ import {
   AssignmentInput,
 } from '../schemas/admin.schema';
 import { USER_ROLES } from '../config/constants';
-import { CrossSchoolAccessError } from '../utils/error';
+import { CrossSchoolAccessError, ForbiddenError, AppError } from '../utils/error';
+import { createSuspensionService } from '../services/suspension.service';
+import { createUserRepository } from '../repositories/user.repository';
 
-// Initialize school service
+// Initialize services
 const schoolService = createSchoolService();
+const suspensionService = createSuspensionService();
+const userRepository = createUserRepository();
 
 const resolveSchoolIdOrThrow = (req: ApiRequest): string => {
   const schoolId =
@@ -255,6 +259,97 @@ export const viewTeacherProgress = async (req: ApiRequest, res: Response) => {
     );
 
     return successResponse(res, progress);
+  } catch (error) {
+    return errorResponse(res, error as Error);
+  }
+};
+
+/**
+ * Suspend a teacher (school admin only)
+ */
+export const suspendTeacher = async (req: ApiRequest, res: Response) => {
+  try {
+    if (!req.user) {
+      return errorResponse(res, new Error('Authentication required'), 401);
+    }
+
+    const { id } = req.params;
+    const { reason } = req.body;
+
+    if (!id) {
+      throw new AppError('Teacher ID is required', 400, 'TEACHER_ID_REQUIRED');
+    }
+
+    if (!reason || typeof reason !== 'string' || reason.trim().length === 0) {
+      throw new AppError('Suspension reason is required', 400, 'REASON_REQUIRED');
+    }
+
+    // Get teacher to verify they belong to the school admin's school
+    const teacher = await userRepository.getUserById(id);
+    if (!teacher) {
+      throw new AppError('Teacher not found', 404, 'TEACHER_NOT_FOUND');
+    }
+
+    // Verify teacher belongs to the school admin's school
+    const schoolId = resolveSchoolIdOrThrow(req);
+    if (teacher.schoolId !== schoolId) {
+      throw new ForbiddenError('You can only suspend teachers in your school');
+    }
+
+    // Perform suspension
+    const updated = await suspensionService.suspendTeacher({
+      userId: id,
+      actorId: req.user.id,
+      reason: reason.trim(),
+    });
+
+    return successResponse(res, updated);
+  } catch (error) {
+    return errorResponse(res, error as Error);
+  }
+};
+
+/**
+ * Unsuspend a teacher (school admin only)
+ */
+export const unsuspendTeacher = async (req: ApiRequest, res: Response) => {
+  try {
+    if (!req.user) {
+      return errorResponse(res, new Error('Authentication required'), 401);
+    }
+
+    const { id } = req.params;
+
+    if (!id) {
+      throw new AppError('Teacher ID is required', 400, 'TEACHER_ID_REQUIRED');
+    }
+
+    // Get teacher to verify they belong to the school admin's school
+    const teacher = await userRepository.getUserById(id);
+    if (!teacher) {
+      throw new AppError('Teacher not found', 404, 'TEACHER_NOT_FOUND');
+    }
+
+    // Verify teacher belongs to the school admin's school
+    const schoolId = resolveSchoolIdOrThrow(req);
+    if (teacher.schoolId !== schoolId) {
+      throw new ForbiddenError('You can only unsuspend teachers in your school');
+    }
+
+    // Check if teacher was suspended due to school suspension
+    if (teacher.suspension?.reason?.startsWith('School suspended:')) {
+      throw new ForbiddenError(
+        'This teacher was suspended due to school suspension. You cannot unsuspend them directly. Contact platform admin.'
+      );
+    }
+
+    // Perform unsuspension
+    const updated = await suspensionService.unsuspendTeacher({
+      id,
+      actorId: req.user.id,
+    });
+
+    return successResponse(res, updated);
   } catch (error) {
     return errorResponse(res, error as Error);
   }

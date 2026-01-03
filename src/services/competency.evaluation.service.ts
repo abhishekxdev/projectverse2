@@ -124,10 +124,17 @@ const callAIWithRetry = async (
       const error = err instanceof Error ? err : new Error(String(err));
       logger.error(`AI evaluation attempt ${attempt + 1} failed`, error, {
         attempt,
+        errorMessage: error.message,
+        errorStack: error.stack,
       });
 
       if (attempt < retries) {
         await sleep(RETRY_DELAY_MS * (attempt + 1));
+      } else {
+        // On final retry, check if it's an API key issue
+        if (error.message.includes('API key') || error.message.includes('apiKey') || error.message.includes('Unauthorized')) {
+          throw new Error('OpenAI API key is missing or invalid. Please check your OPENAI_API_KEY environment variable.');
+        }
       }
     }
   }

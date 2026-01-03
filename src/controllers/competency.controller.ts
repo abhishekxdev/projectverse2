@@ -81,12 +81,19 @@ export const submitAttempt = asyncHandler(
 
     // Auto-trigger evaluation after submission
     let evaluationResult = null;
+    let evaluationError = null;
     try {
       evaluationResult = await competencyService.triggerEvaluation(attempt.id);
     } catch (evalError) {
       // Log error but don't fail the submission - evaluation can be retried
       const error = evalError instanceof Error ? evalError : new Error(String(evalError));
-      console.error('Auto-evaluation failed, will retry later:', error.message, error.stack);
+      evaluationError = error;
+      console.error('Auto-evaluation failed:', {
+        error: error.message,
+        stack: error.stack,
+        attemptId: attempt.id,
+        teacherId
+      });
     }
 
     if (evaluationResult) {
@@ -99,6 +106,13 @@ export const submitAttempt = asyncHandler(
           proficiencyLevel: evaluationResult.proficiencyLevel,
         },
       });
+    } else if (evaluationError) {
+      // Return error immediately so user knows what went wrong
+      throw new AppError(
+        `Assessment submitted but evaluation failed: ${evaluationError.message}. Please contact support or try triggering evaluation manually.`,
+        HTTP_STATUS.INTERNAL_SERVER_ERROR,
+        'EVALUATION_FAILED'
+      );
     } else {
       successResponse(res, {
         message:

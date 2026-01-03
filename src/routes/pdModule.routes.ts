@@ -3,6 +3,7 @@ import {
   getModules,
   getModule,
   getQuestions,
+  generateQuestions,
   startAttempt,
   saveResponses,
   submitAttempt,
@@ -21,6 +22,7 @@ import {
   saveResponsesSchema,
   submitAttemptSchema,
   triggerEvaluationSchema,
+  generateQuestionsSchema,
 } from '../schemas/pdModule.schema';
 
 const router = Router();
@@ -59,6 +61,15 @@ router.get(
   ...teacherMiddleware,
   validateParams(moduleIdParamSchema),
   getQuestions
+);
+
+// Generate AI questions for a module
+router.post(
+  '/modules/:moduleId/generate-questions',
+  ...teacherMiddleware,
+  validateParams(moduleIdParamSchema),
+  validate(generateQuestionsSchema),
+  generateQuestions
 );
 
 // Start a new attempt

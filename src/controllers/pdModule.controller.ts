@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { pdModuleService } from '../services/pdModule.service';
+import { aiQuestionGeneratorService } from '../services/aiQuestionGenerator.service';
 import { asyncHandler } from '../utils/asyncHandler';
 import { successResponse, createdResponse } from '../utils/response';
 
@@ -32,6 +33,27 @@ export const getQuestions = asyncHandler(
     const { moduleId } = req.params;
     const questions = await pdModuleService.getQuestions(teacherId, moduleId);
     successResponse(res, { questions });
+  }
+);
+
+/**
+ * Generate AI questions for a module
+ * POST /api/pd/modules/:moduleId/generate-questions
+ */
+export const generateQuestions = asyncHandler(
+  async (req: Request, res: Response) => {
+    const { moduleId } = req.params;
+    const { count, difficulty, questionTypes, attemptId } = req.body;
+
+    const questions = await aiQuestionGeneratorService.generateQuestions({
+      moduleId,
+      attemptId,
+      count,
+      difficulty,
+      questionTypes,
+    });
+
+    createdResponse(res, { questions });
   }
 );
 

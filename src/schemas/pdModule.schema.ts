@@ -54,5 +54,18 @@ export const triggerEvaluationSchema = z.object({
   batchSize: z.number().min(1).max(50).optional(),
 });
 
+/**
+ * Schema for generating questions
+ */
+export const generateQuestionsSchema = z.object({
+  count: z.number().min(1).max(20).optional(),
+  difficulty: z.enum(['easy', 'medium', 'hard']).optional(),
+  questionTypes: z
+    .array(z.enum(['MCQ', 'SHORT_ANSWER', 'AUDIO', 'VIDEO']))
+    .optional(),
+  attemptId: z.string().optional(),
+});
+
 export type SaveResponsesInput = z.infer<typeof saveResponsesSchema>;
 export type SubmitAttemptInput = z.infer<typeof submitAttemptSchema>;
+export type GenerateQuestionsInput = z.infer<typeof generateQuestionsSchema>;
